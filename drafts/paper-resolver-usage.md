@@ -76,6 +76,13 @@ filter results by `year` after the run (the script has no `--from-year` flag yet
   queries win.** `"remote work loneliness wellbeing" --from-year 2024` → a clean 2024–25 set;
   `"hard-to-reach populations research recruitment strategies"` → on-target methods papers.
 - **Corpus is idempotent** — re-runs are cached by DOI, so iterating on queries is cheap.
+- **Downloader hardened (2026-06-10):** PDF download now uses a browser User-Agent + a `%PDF`
+  content check (so HTML landing/error pages aren't saved as fake PDFs). This recovered several
+  UA-blocked publishers — BUT **SAGE, Wiley, Elsevier, ACM, INFORMS, and MDPI (ijerph) still block**
+  scripted OA-PDF fetch (cookies/JS); those resolve to a full-text URL but need a real browser or
+  manual pickup. Failed downloads stay queued (status=`fulltext`, `pdf_path` empty) — re-runnable
+  later via `batch <failed-dois> --refresh --download`. A headless-browser fetch tier is the next
+  upgrade if we want those.
 
 ## Output to read downstream
 The SQLite db (`papers` table: full record JSON + indexed columns) and, if `--extract` is used, the
