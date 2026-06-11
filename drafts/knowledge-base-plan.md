@@ -5,7 +5,9 @@
 
 ## Purpose
 
-Turn a ~500-paper research corpus (plus additional references) into a knowledge base that serves two consumers from one substrate:
+Our overarching goal: We will discover ways to help remote workers improve their community health.  We are at the stage of exploratory theses.  To that end we are documenting corpi of threat models for interventions, succcess factors, and case studies, which are yeilding a large body of references to academic papers and articles.  An example thesis is that if help-seeking behaviors (seeking help, giving help) for remote workers become one-button simple, then that will reduce friction to help seeking and increase help seeking.  The body of our work is on toolkit.socialnetwork.health, primarily, or linked therefrom, and that is what was used, along with Rich's prompting, to inform the work of AIs that have helped with this document.
+
+To serve that end, we would like to turn a large research corpus (starting with about 500 papers plus additional references) into a knowledge base that serves two consumers from one substrate:
 
 1. **Humans** — fast re-orientation at the wiki. Mouse over a reference, recover in ~5 seconds what the paper claims and why it's in the corpus. The cards amortize understanding; they never replace it. Understanding is built when reading papers and when correcting wrong cards — the card is the externalized trace that lets a future reader skip the re-derivation.
 2. **AIs** — evidence synthesis. Given a claim, identify the right 5–15 papers fast, then read them in full. Whole-document agentic reading over clean files, not chunk-based RAG.
@@ -38,8 +40,6 @@ source: papers/doi-or-fallback-id.md
 ```
 
 Design rule: the `gist` + `claims` block **is** the hover-card. The full card is what AIs consume. One schema, two readers.
-
-Gist: We will discover ways to help remote workers improve their community health.  Our first thesis is that if help-seeking behaviors (seeking help, giving help) are one-button simple, then that will reduce friction to help seeking and increase health.  The body of our work is on toolkit.socialnetwork.health, and that is what was used, along with Rich's prompting, to inform the work by AI thus far.
 
   Gist Example: "This paper on the Wingman Connect program is seminal and slept on, because it tells us what inspires continued participation in social network health interventions, and we intend to build tools that inspire that as well."
 
