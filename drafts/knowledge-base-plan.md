@@ -39,6 +39,15 @@ source: papers/doi-or-fallback-id.md
 
 Design rule: the `gist` + `claims` block **is** the hover-card. The full card is what AIs consume. One schema, two readers.
 
+Gist: We will discover ways to help remote workers improve their community health.  Our first thesis is that if help-seeking behaviors (seeking help, giving help) are one-button simple, then that will reduce friction to help seeking and increase health.  The body of our work is on toolkit.socialnetwork.health, and that is what was used, along with Rich's prompting, to inform the work by AI thus far.
+
+  Gist Example: "This paper on the Wingman Connect program is seminal and slept on, because it tells us what inspires continued participation in social network health interventions, and we intend to build tools that inspire that as well."
+
+Claims: Findings that the paper claims are true.  Almost always corellations found in studies that have been peer reviewed and replicated in academic papers, and in articles they are claims based on either logic or other research.  Evidence is based on the data analysis from the experimental methods of the paper.  So here is a good claim:
+
+  Claim Example: "Participants show stronger sense of belonging and greater inclination to continue working on social network health interventions as a team when they have shared 100 words or more in a group setting with the team about themselves."
+  Evidence: in multiple large sample peer-reviewed longitudinal studies show a p=5 correlation in survey results
+
 ## Phases
 
 ### Phase 1 — Schema design (~1 day)
