@@ -1,0 +1,30 @@
+# Managed by Ansible (ops/ansible) — Caddy for {{ site_domain }} (Let's Encrypt).
+# Static site only: apex serves files; www redirects to apex.
+{
+	email {{ caddy_admin_email }}
+	# Disable the unauthenticated localhost admin API (default :2019). Config is
+	# fully static and applied by Ansible, so we never need the live admin/config
+	# API; leaving it on would give any local process a control plane that can
+	# extract TLS keys. Trade-off: `caddy reload` no longer works, so the caddy
+	# role's handler does a full `systemctl restart` (brief blip on config change).
+	admin off
+	# Pin ACME to Let's Encrypt (Caddy's default also adds a ZeroSSL fallback).
+	acme_ca https://acme-v02.api.letsencrypt.org/directory
+}
+
+www.{{ site_domain }} {
+	redir https://{{ site_domain }}{uri} permanent
+}
+
+{{ site_domain }} {
+	encode gzip
+	header {
+		# No includeSubDomains: this apex shouldn't force HTTPS onto sibling
+		# subdomains (e.g. toolkit.socialnetwork.health) that may live elsewhere.
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+	}
+	root * {{ site_root }}
+	file_server
+}

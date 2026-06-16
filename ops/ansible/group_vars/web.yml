@@ -1,0 +1,21 @@
+---
+# Site + operator settings for the socialnetwork.health droplet.
+# Nothing secret here (TLS is automatic via Let's Encrypt; no app secrets).
+
+site_domain: socialnetwork.health
+site_root: /var/www/socialnetwork.health
+
+# Let's Encrypt / ACME registration address (not a sending address).
+caddy_admin_email: richbodo@gmail.com
+
+# Human operator account created on the droplet. Owns the site root so static
+# deploys (ops/deploy.sh) rsync in as this user without sudo. Added to the
+# sudo group for convenience, but it has no password set, so admin access is
+# via root key (see ansible_user). Run `passwd rsb` on the box if you want
+# interactive sudo as the operator.
+operator_user: rsb
+operator_pubkey_file: ~/.ssh/id_ed25519.pub
+
+# Key-only SSH (password auth off). Root stays reachable by key
+# (PermitRootLogin prohibit-password) so Ansible keeps working.
+disable_password_ssh: true
