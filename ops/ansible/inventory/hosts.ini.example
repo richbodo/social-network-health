@@ -1,0 +1,9 @@
+# Copy to hosts.ini (gitignored) and set the droplet IP.
+# Use the droplet's public IPv4 for SSH/provisioning. DNS will point the
+# domain at the Reserved IP, but SSH can use either.
+
+[web]
+snh-prod ansible_host=REPLACE_WITH_DROPLET_IP
+
+[web:vars]
+# ansible_user / ansible_port / key live in inventory/group_vars/web.yml

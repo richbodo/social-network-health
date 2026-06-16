@@ -1,0 +1,8 @@
+---
+# Full restart, not reload: `admin off` in the Caddyfile disables the admin API
+# that `caddy reload` drives, so a reload would fail. A restart re-reads the file
+# directly. Brief connection blip on config change; fine for a static site.
+- name: Restart caddy
+  ansible.builtin.service:
+    name: caddy
+    state: restarted

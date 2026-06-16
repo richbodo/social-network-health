@@ -1,0 +1,102 @@
+# ops/ — hosting socialnetwork.health on its own droplet
+
+Self-contained provisioning + deploy for the **socialnetwork.health** static
+site. Independent of `fellows_local_db` (no shared Ansible roles, no cross-repo
+dependencies) so this site can be moved or retired without touching anything
+else.
+
+The entire live site is two files from `../public/`:
+
+- `socialnetwork-health.html` → served as `index.html`
+- `78e65dce-3229-46b0-be38-02da250aaddc.svg` → favicon/logo, referenced at web root
+
+Caddy serves them with automatic HTTPS (Let's Encrypt). No app build, no Node.
+
+## Layout
+
+```
+ops/
+  deploy.sh                 # rsync the two static files to the droplet (run as operator)
+  ansible/
+    ansible.cfg
+    site.yml                # bootstrap (common + caddy roles)
+    inventory/
+      hosts.ini.example     # copy to hosts.ini, set droplet IP
+      group_vars/web.yml    # connection: root over key-based SSH
+    group_vars/web.yml      # site domain, root, LE email, operator user
+    roles/
+      common/               # packages, UFW, SSH hardening, fail2ban, auto-upgrades, operator user
+      caddy/                # official Caddy apt repo, install, site config
+```
+
+## One-time: create the droplet (manual, in the DigitalOcean UI)
+
+1. **Droplet**: Ubuntu 24.04 LTS, smallest Basic plan, region of your choice,
+   add your SSH key (`~/.ssh/id_ed25519`). Note its **public IPv4**.
+2. **Reserved IP**: create one and assign it to the droplet. DNS will point at
+   the Reserved IP so the droplet can be rebuilt/moved without a DNS change.
+
+## Provision (connects as root — no sudo password needed)
+
+```bash
+cd ops/ansible
+cp inventory/hosts.ini.example inventory/hosts.ini
+# edit inventory/hosts.ini: set ansible_host=<droplet public IP>
+
+ansible-galaxy collection install -r collections/requirements.yml -p collections
+
+# accept the new host key once
+ssh-keyscan -p 22 <droplet-ip> >> ~/.ssh/known_hosts
+
+ansible-playbook site.yml                 # full bootstrap
+ansible-playbook site.yml --tags caddy    # later: re-render Caddy config only
+```
+
+This installs Caddy, writes the site config, opens the firewall (22/80/443),
+hardens SSH (key-only; root reachable by key), and creates the `rsb` operator
+that owns `/var/www/socialnetwork.health`.
+
+## Deploy the site (rsync as operator — no sudo)
+
+```bash
+SNH_HOST=rsb@<droplet-or-reserved-ip> ./ops/deploy.sh
+```
+
+(Or edit the default `SNH_HOST` in `ops/deploy.sh` once the IP is known.)
+
+## DNS cutover (Cloudflare, DNS-only / grey-cloud)
+
+Point `socialnetwork.health` **A** record at the **Reserved IP**, leave `www`
+as a CNAME to the apex, keep records grey-cloud so Caddy's ACME HTTP challenge
+reaches the origin. Caddy issues the cert automatically on the first request.
+
+## Verify
+
+```bash
+curl -sI https://socialnetwork.health/ | head -n1            # HTTP/2 200
+curl -s  https://socialnetwork.health/ | grep -o '<title>[^<]*</title>'
+curl -sI https://www.socialnetwork.health/ | grep -i location  # -> apex
+```
+
+## SSH access & the scanner flood
+
+- SSH is reached via the **Reserved IP** (`170.64.248.173`) on the **standard
+  port 22**, key-only (ed25519). The Reserved IP survives droplet recreation.
+- A fresh public-IP droplet is hit immediately by an SSH **botnet flood** on
+  port 22 (we observed ~90 concurrent connections tripping sshd's MaxStartups,
+  making connections flaky). This is blocked at DigitalOcean's edge by a **DO
+  Cloud Firewall** that allowlists inbound SSH to the operator IP:
+  - Inbound: `SSH 22` ← operator IP only; `HTTP 80` ← all; `HTTPS 443` ← all.
+  - Update the SSH source rule if the operator's IP changes.
+- We deliberately do **not** move SSH to a non-standard port: Ubuntu 24.04's
+  `sshd` is socket-activated (`ssh.socket` owns the port; `ssh.service`
+  `Requires=ssh.socket`), and a custom `Port` in `sshd_config` races the socket
+  and can lock you out. The DO firewall solves the flood without that risk.
+
+## Notes
+
+- Admin path is the **root key** (Ansible connects as root). `rsb` is the deploy
+  operator (owns the site root, key-only). It has a password and is in the sudo
+  group, so interactive `sudo` works from the DO console if ever needed.
+- Caddy logs go to journald: `journalctl -u caddy`.
+- `inventory/hosts.ini` (real IP) and `collections/` are gitignored.
