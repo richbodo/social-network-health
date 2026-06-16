@@ -1,0 +1,7 @@
+---
+# Overridable in group_vars. Defaults keep the first run on port 22 so a fresh
+# droplet is reachable without any pre-step. Raise to a custom port only after
+# the box is up (UFW opens ssh_listen_port before sshd restarts, so ordering is
+# safe; remember to bump ansible_port for the next run).
+ssh_listen_port: 22
+disable_password_ssh: true

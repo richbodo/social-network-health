@@ -1,0 +1,116 @@
+---
+- name: Install baseline packages
+  ansible.builtin.apt:
+    name:
+      - curl
+      - ufw
+      - fail2ban
+      - ca-certificates
+      - gnupg
+      - rsync
+      - debian-keyring
+      - debian-archive-keyring
+      - apt-transport-https
+    state: present
+    update_cache: true
+
+# Ubuntu 24.04 applies -security updates nightly but never reboots, so kernel
+# updates strand the box on the old kernel. Drop-in (not inside the distro file)
+# so package upgrades won't clobber it. Box is UTC; 04:00 is a quiet window.
+- name: Configure unattended-upgrades auto-reboot
+  ansible.builtin.copy:
+    dest: /etc/apt/apt.conf.d/52unattended-upgrades-local
+    owner: root
+    group: root
+    mode: "0644"
+    content: |
+      // Managed by Ansible (ops/ansible roles/common). Do not edit by hand.
+      Unattended-Upgrade::Automatic-Reboot "true";
+      Unattended-Upgrade::Automatic-Reboot-WithUsers "true";
+      Unattended-Upgrade::Automatic-Reboot-Time "04:00";
+
+# Operator account for rsync deploys. Owns the site root (set by the caddy
+# role). In the sudo group for convenience but with no password, so admin
+# access stays on the root key; run `passwd {{ operator_user }}` to enable
+# interactive sudo as the operator.
+- name: Ensure operator group exists
+  ansible.builtin.group:
+    name: "{{ operator_user }}"
+    state: present
+
+- name: Ensure operator user exists (login shell + home for rsync deploys)
+  ansible.builtin.user:
+    name: "{{ operator_user }}"
+    group: "{{ operator_user }}"
+    groups: sudo
+    append: true
+    shell: /bin/bash
+    create_home: true
+    state: present
+
+- name: Authorize operator SSH key
+  ansible.posix.authorized_key:
+    user: "{{ operator_user }}"
+    key: "{{ lookup('file', operator_pubkey_file) }}"
+    state: present
+
+- name: Configure UFW defaults (deny incoming, allow outgoing)
+  ansible.builtin.command: "ufw --force default {{ item.policy }} {{ item.direction }}"
+  loop:
+    - { policy: deny, direction: incoming }
+    - { policy: allow, direction: outgoing }
+  changed_when: false
+
+- name: Allow SSH / HTTP / HTTPS through UFW
+  ansible.builtin.command: "ufw allow from any to any port {{ item }} proto tcp"
+  loop:
+    - "{{ ssh_listen_port }}"
+    - 80
+    - 443
+  changed_when: false
+
+- name: Enable UFW
+  ansible.builtin.command: ufw --force enable
+  changed_when: false
+
+- name: Install SSH hardening override
+  ansible.builtin.template:
+    src: sshd_hardening.conf.j2
+    dest: /etc/ssh/sshd_config.d/99-snh.conf
+    owner: root
+    group: root
+    mode: "0644"
+    validate: sshd -t -f %s
+  notify: Restart sshd
+
+# NOTE: SSH stays on the standard port 22 (Ubuntu 24.04's socket-activated sshd,
+# untouched). The port-22 scanner flood is handled at DigitalOcean's edge by a
+# Cloud Firewall (SSH allowlisted to the operator IP) — see ops/README.md.
+# We deliberately do NOT move the SSH port here: on socket-activated sshd a
+# custom Port in sshd_config races ssh.socket for the port and can lock you out.
+
+# fail2ban reads the journal (Ubuntu 24.04 has no /var/log/auth.log by default).
+- name: Configure fail2ban sshd jail
+  ansible.builtin.copy:
+    dest: /etc/fail2ban/jail.local
+    owner: root
+    group: root
+    mode: "0644"
+    content: |
+      # Managed by Ansible (ops/ansible roles/common). Do not edit by hand.
+      [DEFAULT]
+      backend = systemd
+      bantime = 1h
+      findtime = 10m
+      maxretry = 5
+
+      [sshd]
+      enabled = true
+      port = {{ ssh_listen_port }}
+  notify: Restart fail2ban
+
+- name: Ensure fail2ban is enabled and started
+  ansible.builtin.service:
+    name: fail2ban
+    state: started
+    enabled: true

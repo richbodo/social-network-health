@@ -1,0 +1,10 @@
+---
+# Connection settings (loaded next to the inventory — reliable for these).
+# We provision and manage config as root over key-based SSH on the standard
+# port 22. The port-22 scanner-bot flood is blocked at DigitalOcean's edge by a
+# Cloud Firewall (SSH allowlisted to the operator's IP), so there's no need to
+# move the SSH port or fight Ubuntu 24.04's socket activation.
+ansible_user: root
+ansible_port: 22
+ssh_listen_port: 22
+ansible_ssh_private_key_file: ~/.ssh/id_ed25519

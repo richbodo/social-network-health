@@ -1,0 +1,19 @@
+---
+# Provision a single-purpose static-site droplet for socialnetwork.health.
+# Independent of fellows_local_db — no shared roles, no cross-repo deps.
+#
+#   cd ops/ansible
+#   ansible-playbook site.yml                 # full bootstrap (as root)
+#   ansible-playbook site.yml --tags caddy    # re-render Caddy config only
+#
+# First run only: accept the droplet host key first, e.g.
+#   ssh-keyscan -p 22 <droplet-ip> >> ~/.ssh/known_hosts
+
+- name: socialnetwork.health static site
+  hosts: web
+  gather_facts: true
+  roles:
+    - role: common
+      tags: ["bootstrap"]
+    - role: caddy
+      tags: ["bootstrap", "caddy"]
