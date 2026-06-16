@@ -1,0 +1,11 @@
+# Managed by Ansible (ops/ansible roles/common). Do not edit by hand.
+# No Port directive: sshd is socket-activated on Ubuntu 24.04 (ssh.socket owns
+# the port, default 22) and a Port here would race the socket. Auth hardening
+# only; the scanner flood is blocked by a DO Cloud Firewall at the edge.
+PasswordAuthentication {{ 'no' if disable_password_ssh else 'yes' }}
+KbdInteractiveAuthentication no
+ChallengeResponseAuthentication no
+PubkeyAuthentication yes
+# Root stays reachable by key (Ansible connects as root); password root login off.
+PermitRootLogin prohibit-password
+
