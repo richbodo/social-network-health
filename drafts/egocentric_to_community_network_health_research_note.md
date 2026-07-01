@@ -96,7 +96,95 @@ The most interesting social-network-health insight is probably not “the networ
 
 These are useful because they point toward community-care questions without requiring the dashboard to reveal individual relationships. The practical value is in aggregate diagnosis and research, not automated intervention.
 
-## 4. Technology / crypto / privacy-preserving graph computation
+## 4. Architecture
+
+The three diagrams below make the layers from §3 concrete: (1) how a single PRM builds its private egocentric graph, (2) how PRMs use a shared protocol to contribute proofs to an encrypted community space and get community-health metrics back, and (3) a proposed answer to a question the note otherwise leaves open — how a PRM proves it genuinely shares a community with the other members of a space, rather than merely asserting it.
+
+### 4.1 Personal relationship manager: building the private data layer
+
+The communications analyzer runs inside the PRM's own local/sandboxed trust boundary (per §3's "local analyzers... run locally or in protected sandboxes") — statistical signal about communications never leaves the device unprocessed. It is correlated against contact records, and the result is folded into the private data layer, which is an egocentric graph by construction: every node in it is reachable from, and defined relative to, the user.
+
+```mermaid
+flowchart TD
+    subgraph PRM["Personal Relationship Manager (local, on-device)"]
+        CR["Contact Records"]
+        CA["Communications Analyzer<br/>(Gmail / Signal / WhatsApp / calendar)"]
+        COR{"Correlate communications<br/>statistics with contacts"}
+        PDL[("Private Data Layer<br/>(egocentric graph, by definition)")]
+
+        CA -->|"statistical comms data<br/>(frequency, recency, channel)"| COR
+        CR --> COR
+        COR -->|"enriched relationship edges"| PDL
+    end
+```
+
+### 4.2 PRMs, the encrypted space, and the feedback loop
+
+Each PRM's proof compiler draws on its own private data layer to emit commitments/proofs rather than raw data. The encrypted space (the first Technology/protocol reference, §8) is drawn as one trust boundary but two distinct roles, per the note's own layer split: a membership/verification role (schemas, proof verification, revocation, audit log) and an aggregation/release role (MPC/secure aggregation, differential privacy, thresholding). Only the aggregation role's output — never individual proofs — reaches PRMs.
+
+```mermaid
+flowchart LR
+    subgraph PRM_A["PRM A (cohort member)"]
+        PDL_A[("Private Data Layer")]
+        PC_A["Proof Compiler"]
+        PDL_A --> PC_A
+    end
+
+    subgraph PRM_B["PRM B (cohort member)"]
+        PDL_B[("Private Data Layer")]
+        PC_B["Proof Compiler"]
+        PDL_B --> PC_B
+    end
+
+    subgraph SPACE["Encrypted Community Space (shared substrate)"]
+        MEM["Membership & proof verification<br/>(schemas, revocation, audit log)"]
+        AGG["MPC / secure aggregation +<br/>differential-privacy release"]
+        MEM --> AGG
+    end
+
+    PC_A -- "ZK proof + commitment" --> MEM
+    PC_B -- "ZK proof + commitment" --> MEM
+    AGG -- "thresholded community<br/>SNH metrics" --> PC_A
+    AGG -- "thresholded community<br/>SNH metrics" --> PC_B
+```
+
+### 4.3 Proving genuine shared community (open design question, proposed mechanism)
+
+The note's proof-compiler example treats cohort membership as a bare assertion — "I am an eligible member of cohort C" — without saying what makes that true. That's the crux of your "if and only if they genuinely do" requirement: a space that admits self-declared members isn't actually verifying shared community, it's just trusting whoever shows up.
+
+One plausible mechanism, **not yet validated against the literature**, is threshold attestation: a candidate PRM is admitted only if enough *already-admitted* members independently attest, from their own private relationship data, that they have a real tie to the candidate. No single attester's word is sufficient (that would just relocate the trust problem to one person); no self-attestation is sufficient either.
+
+```mermaid
+flowchart TD
+    CAND["Candidate PRM<br/>(requests entry to Cohort C)"]
+    REQ["Membership request"]
+
+    subgraph EXISTING["Already-admitted Cohort C members"]
+        M1["Member PRM 1"]
+        M2["Member PRM 2"]
+        M3["Member PRM N"]
+    end
+
+    THR{"Threshold reached?<br/>(&ge;k independent attestations<br/>of a real relationship)"}
+    CRED["Cohort-scoped admission credential<br/>(pseudonymous, epoch-bound)"]
+    REJECT["Request denied<br/>(no shared community established)"]
+    SPACE2["Encrypted Community Space"]
+
+    CAND --> REQ
+    REQ --> M1
+    REQ --> M2
+    REQ --> M3
+    M1 -- "attest / withhold" --> THR
+    M2 -- "attest / withhold" --> THR
+    M3 -- "attest / withhold" --> THR
+    THR -- "yes" --> CRED
+    THR -- "no" --> REJECT
+    CRED --> SPACE2
+```
+
+This still leaves open, and unresolved by this note: what threshold *k* is Sybil-resistant, whether attestations themselves leak who-knows-whom, and how a member's admission credential is revoked if the relationship that justified it later turns out to be false or lapses. Two further gaps the diagrams above don't resolve, flagged here rather than drawn: (a) **mutual-edge matching** — when two PRMs each claim a tie to the same alter, nothing in the note specifies how they recognize it's the *same* edge without a central party linking identities (a private-set-intersection-shaped problem); (b) **governance** — the note's refusal rules and query-budget accounting imply some authority decides what's safe to release, but no component in these diagrams currently plays that role.
+
+## 5. Technology / crypto / privacy-preserving graph computation
 
 The technology design is best understood as five layers:
 
@@ -108,7 +196,7 @@ The technology design is best understood as five layers:
 
 The key caution is that zero-knowledge proofs do not solve privacy by themselves. A ZK proof hides the witness, but the statement being proven can still leak. For example, “I have a high-trust tie to someone in this small subgroup” may be identifying even if the proof is cryptographically zero knowledge. The system therefore needs thresholding, differential privacy, query-budget accounting, purpose-specific pseudonyms, epoch rotation, and strong refusal rules for unsafe small-cell outputs.
 
-## 5. Computable community metrics from egocentric contributions
+## 6. Computable community metrics from egocentric contributions
 
 The first community dashboard should avoid individual rankings and “who is most central” outputs. It should compute aggregate, thresholded, noisy indicators that are useful for stewardship while resisting re-identification.
 
@@ -138,7 +226,7 @@ Candidate aggregate metrics:
 
 The safest early metrics are binned degree distributions, near-isolate counts, context-mixing matrices with suppression, recency decay, and semantic-confidence aggregates. More sensitive metrics — bridge redundancy, hub-load, triangle counts, and ambivalent/high-cost tie prevalence — should require larger cohorts, stronger privacy controls, and more careful review.
 
-## 6. Suggested test parameters
+## 7. Suggested test parameters
 
 A first serious test should be a lab/research prototype, not an intervention.
 
@@ -159,7 +247,7 @@ A first serious test should be a lab/research prototype, not an intervention.
 
 The research contribution would be the combined design pattern: **local-first personal relationship graphs plus privacy-preserving egocentric-to-community inference for social network health**.
 
-## 7. References
+## 8. References
 
 ### Social-network-health and egocentric-method references
 
