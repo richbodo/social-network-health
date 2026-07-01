@@ -6,7 +6,7 @@ _Initial source conversation for this research note: <https://chatgpt.com/share/
 
 ## 1. Decision trail and current thesis
 
-The conversation began with a broad question: whether social-network-health, community-health, or social-capital research has studied communities by starting from each individual’s own personal network rather than by first centralizing a whole sociocentric graph. The framing was then narrowed away from generic “social capital” and toward a local-first **personal relationship manager** that can analyze a user’s own egocentric network and surface useful, explainable feedback.
+The conversation began with a broad question: whether social-network-health research has studied communities by starting from each individual’s own personal network rather than by first centralizing a whole sociocentric graph. If given a **personal relationship manager** that can analyze a user’s own egocentric network, can we surface useful, explainable feedback.
 
 The working product/design thesis is now:
 
@@ -16,8 +16,6 @@ The stronger community thesis was refined into a defensible “version two”:
 
 > Given opt-in local egocentric relationship data, explicit edge predicates, privacy-preserving identity/linkage mechanisms, secure aggregation, and differentially private release controls, selected community-network-health indicators can be estimated without centralizing raw relationship data.
 
-The rejected or weakened version is: “any arbitrary connected collection of ego sets is enough to generate meaningful community health insight.” That is probably too broad. Ego-network data can be consistent with many different global networks unless the sampling process, boundary definition, edge semantics, alter-alter data, and inference assumptions are specified.
-
 No single paper or project was found that implements the full stack: **personal relationship manager → local/sandboxed account analyzers → egocentric relationship proofs → encrypted collaborative space → ZK/MPC/private aggregation → community social-network-health dashboard**. The pieces exist across several literatures, and the exact combination still looks like an open research/design contribution.
 
 This note treats the design as research infrastructure and a lab prototype, not as a deployed intervention. The aim is to determine what can be measured, what cannot be safely measured, and what kinds of community-level insights can be supported without centralizing raw relationship data.
@@ -26,7 +24,7 @@ This note treats the design as research infrastructure and a lab prototype, not 
 
 The relevant research vocabulary is **egocentric network analysis**, **personal network analysis**, **personal communities**, and sometimes **networked individualism**. The most useful design shift is to stop treating “community” as necessarily one bounded sociocentric graph and instead ask how many personally bounded networks overlap, conflict, reinforce, or fail to connect.
 
-For the personal relationship manager, the safer design is not a single “network health score.” It is a panel of explainable signals. The important insight is that different network shapes can be healthy in different ways. Dense clusters can provide belonging and redundancy, but can also be insular. Sparse networks can create bridges and autonomy, but can also indicate fragility or isolation. More ties are not automatically better.
+For the personal relationship manager, we propose a panel of explainable signals. The important insight is that different network shapes can be healthy in different ways. Dense clusters can provide belonging and redundancy, but can also be insular. Sparse networks can create bridges and autonomy, but can also indicate fragility or isolation. More ties are not automatically better.
 
 Recommended personal-level metrics:
 
