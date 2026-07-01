@@ -1,20 +1,12 @@
 # Private Egocentric-to-Community Network Health: Research Note
 
-_Date: 27 June 2026_
+Some social network health research has studied communities by starting from each individual’s own personal network rather than by first centralizing a whole sociocentric graph (the more typical approach). If given a **personal relationship manager** that can analyze a user’s own egocentric network, can we surface useful, explainable feedback for not just individuals, but entire communities, without revealing PII.
 
-_Initial source conversation for this research note: <https://chatgpt.com/share/6a3f9a12-ebd0-83ec-afc8-391b79461f1c>_
+## 1. Thesis
 
-## 1. Decision trail and current thesis
+Given opt-in local egocentric relationship data, explicit edge predicates, privacy-preserving identity/linkage mechanisms, secure aggregation, and differentially private release controls, selected community-network-health indicators can be estimated without centralizing raw relationship data.
 
-The conversation began with a broad question: whether social-network-health research has studied communities by starting from each individual’s own personal network rather than by first centralizing a whole sociocentric graph. If given a **personal relationship manager** that can analyze a user’s own egocentric network, can we surface useful, explainable feedback.
-
-The working product/design thesis is now:
-
-> A local-first personal relationship manager can use egocentric network analysis as a reflective maintenance layer: helping a person see support coverage, neglected ties, over-concentration, weak-tie bridges, costly relationships, and gaps in their own semantic understanding of relationships.
-
-The stronger community thesis was refined into a defensible “version two”:
-
-> Given opt-in local egocentric relationship data, explicit edge predicates, privacy-preserving identity/linkage mechanisms, secure aggregation, and differentially private release controls, selected community-network-health indicators can be estimated without centralizing raw relationship data.
+### Prior Art
 
 No single paper or project was found that implements the full stack: **personal relationship manager → local/sandboxed account analyzers → egocentric relationship proofs → encrypted collaborative space → ZK/MPC/private aggregation → community social-network-health dashboard**. The pieces exist across several literatures, and the exact combination still looks like an open research/design contribution.
 
