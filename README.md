@@ -6,3 +6,5 @@ It aggregates several efforts:
 - Production of educational materials that support understanding of social network health interventions
 
 This repo contains a website with some links to software efforts we are developing in other places, and drafts of research summaries, papers, and some ongoing experiments. 
+
+The drafts/research_summaries folder is currently where papers that are applicable to protocols that are proposed are being summarized and tested.
