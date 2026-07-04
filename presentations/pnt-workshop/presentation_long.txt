@@ -1,0 +1,156 @@
+
+ I was a developer, a manager, and an IT guy, and I've been at that for a long time.
+
+More recently I studied social network health by following around the most effective social network health trainer I could find anywhere, and helping produce videos for him of researchers, trainers, staff, and students he worked with about social network health interventions.
+
+  When I wrapped that up, I spoke about it briefly at dweb camp, and I was asked by someone if it would be possible to write a piece of software to help this community improve their mental health outcomes.
+
+I thought that was probably not possible at the time, because social network health interventions are best when designed and implemented by research teams who are relatively expert in that field, and they're typically implemented face-to-face through experiential learning within a geographically local community.
+
+But then I faced my own mental health challenge some time later, and I attempted to use social media to find someone to talk to - that didn't go well. I was met with hugely distracting platforms that had sucked up all of my contact data and mixed it up with so much noise from fake "contacts" and "friends" that I ran completely out of energy before I could find the enough needles in the haystack to knit something together. 
+
+It became clear to me that there really might be something that I could do with software for the mental health of myself and my egocentric communities, and that's take back my contact data. It is too dangerous for me not to have full confidence in my control of that, so I became kind of obsessed with making some apps that are both usable and safe for myself and my friends.
+
+The strategy I usually take when building something is to see what's out there that's already built.  
+
+So I found the local-first community, because it's obvious that I wanted my contact data local, so it seemed natural, and more importantly,  I wanted to start building my private relationship data. By private relationship data I mean data that I never-have-and-never-would give to SaaS vendors (eg. Who are in the groups of people I can call to talk about mental health, medical and legal issues, etc.).
+
+I suspect this is a common route to local-first: When trying to use SaaS software to find someone fails at a critical moment, it wakes you up a bit, and you look to buy or build something local.
+
+The local-first movement was originally defined with seven ideals that are kind of like a behavior set for applications - a recipe for replacing SaaS software.  The application behaviors I needed were about half there.  But I think the spirit of local-first fits the software I want to build - it's software that takes back your data.
+
+Where what I need to build differs from local-first ideals are in trust and interoperation with SaaS.
+
+I need absolute trust in my tools for that data.  I need to be able to build, validate, and diagnose open source software to have the level of trust I demand.  That's a non-negotiable for me on this.  I also want to contribute, although that's negotiable.  Local-first doesn't demand OSS, but it likes it.  
+
+Another difference stems from the fact that I don't actually need to sync with a SaaS system to get the 80/20 out of a tool that manages my relationship data today.  I can get almost all the value from exporting my data once in a while and being smart about how I import it, and starting with a no-sync stance simplifies and already tricky safety problem.
+
+In general, I want to look at my SaaS vendors as a glorified databases of already-shared data. 
+I can talk to a local AI and get more done than with SaaS. So I'm changing, not ending my relationship with SaaS - it just can't be my canonical data store for anything important.  
+
+The most fun thing I found right away in the local-first literature was this talk from Maggie Appleton (https://maggieappleton.com/home-cooked-software). 
+
+The feature set of home-cooked software meals:
+
+- They are simple, cheap, or free.
+
+- They are made with love and care.
+
+- They are safe.
+
+- They don't have any financial pressure.
+
+- They give you control.
+
+- They are private.
+
+- They serve your specific needs.
+
+I embrace all of those goals, but the only ones that are complicated for me to validate while I'm building an application are the safety, privacy, and control.  Giving our work away with love is just a thing we do, and building for a small group or an individual  makes the specificity automatic.
+
+But I can make as sure as possible I test for safety, privacy, and user-control.  So in the age of AI, why wouldn't you implement tools to help with that?  The tools make it very cheap to build and validate, once you build the context for them.
+
+So what I needed was an open source local-first application, without the need to sync anything, constructed as a home-cooked software meal, with a few constraints layered on top as I was building for a specific application class - apps that manage contact and super-sensitive relationship data.
+
+I set to work.
+
+I spent about a year writing contact managers for myself that I didn't feel comfortable with before deciding to build a real spec and evolve that spec with reference designs that have real users. 
+
+So starting this year, I built tools for friends, an that went much better.  I built a directory archive for 50 users (my fellowship was sunsetting it), and a small personal relationship manager for 2 users.
+
+I needed them to be safe, so to validate my work as I went along, and to build context and speed things up, I started with some goals and notes on the architecture I really wanted.
+
+The notes became more useful over time, checking conformance to the notes as a Spec became a daily education.  
+
+I called the toolkit that I built to validate my work the "Personal Network Application Toolkit".  There is a formal specification in the toolkit now, the PNA Spec, that lists the goals, architectural commitments, and the realizations and constraints that it is meant to validate:
+
+My goals:
+
+Goal 1 — Take ownership of the root
+Goal 2 — Protect the root's integrity, by validation
+Goal 3 — Protect the root from egress
+Goal 4 — Protect the root from entropy and accidents
+
+And that's layer 0 of my specification, the Personal Network Application spec.
+
+Layer 1, just below that are architectural commitments, and I built those to satisfy the goals, but they survive one rule: A complete swap out of the tech that implements the architectural commitment must be possible.
+
+[Validating Signal and the Split DB resolution of AC-1 into three]
+
+Layer 2 contains realizations and constraints - things that my reference designs have shown work, and contstraints that environments put on my applications that change the way they work.
+
+[Show three layers]
+
+So at some point it became this "toolkit" that guides and supports my development of applications in this general application class.
+
+I wrote a small positioning paper that studied about 100 other specs and projects 
+
+[Show the table and diagrams from positioning paper]
+
+My takeaway was to keep forging ahead because not only is this the highest leverage type of software I could personally build, but I could find no project that was working to build a toolkit for building these apps.
+
+Taking one goal in more detail:
+
+[Show Goal 1 - full definition]
+
+Some architectural commitments that serve that:
+
+[Show the subset]
+
+And some exceptions and constraints that I found building reference designs:
+
+[Show the constraints and exceptions]
+
+Those are pretty mundane, so lets see how two real world designs (a "home cooked meal" for ~500 users, and one for ~2 users) handled some of the trickier bits of AI interoperation.
+
+[Demo fellows and prm]
+[Walk through with screenshots the safety countermeasures for AI usage]
+
+And lets look at what a regular validation report looks like against those two:
+
+[Show validation reports]
+
+And against an application like Signal Desktop:
+
+[Show validation report]
+
+Now we can open it up.  
+
+Method:
+
+Build real apps, discover what is useful and safe, feed that knowledge back into the class spec, and then validate reference designs and nearby apps against the specification.
+
+That is the highest level method that I could implement that still guides applications in the right direction deterministically, and provides an executable framework for safety evaluation.
+
+It's not as high-level as "local-first" ideals, and not as low level as typical Spec Driven Development.
+
+The PNA Spec is a living spec that evolves only when reference designs or other applications it validates prove that it should, and the AI tooling performs self-checks on the spec when needed.  AI is super helpful in automating this, as you would expect, so although building a toolset like this was an insane thing to try a few years ago, today it's well worth maintaining the toolkit to build context, build in safety, and speed up future development.
+
+Positioning:
+
+My positioning thesis is that the space of Personal Network Applications is a sweet spot to focus on - very high leverage and very underserved.
+
+Below that thesis is the PNA_Spec, which has three layers, and I use an evolutionary method:
+
+Layer 0:
+
+The Goals of a Personal Network Application should protect an individuals network root and increase it's utility.
+
+Everything below layer 0 I consider complexity that must be earned by building reference designs and user feedback.
+
+Layer 1:
+
+So as I go I make smaller bets - the architectural commitments - they are theses that pass the tests of being "tech independent" and advancing the goals.  
+
+Layer 2: 
+
+Everything below that level, is earned practical design wisdom based on the tech used, and the environments the applications are used in (exceptions users demand to safe use, constraints that an execution environment puts on the behavior of applications).
+
+This is working for me.
+
+I started with just a single application design for a year, but, partly because I code with AI these days, the test suites were always missing the big picture.  It never felt safe.
+
+This year, every time I contemplate a feature, or someone gives me feedback from a reference design, I learn and reflect on the spec, and advance both the application design and the spec.  
+
+I would probably start the critique at layer 0, the goals, and move down the stack to at least layer 1, depending on what people are most interested in.
+
