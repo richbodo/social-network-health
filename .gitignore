@@ -16,8 +16,8 @@ logs
 # Brainstorm logs
 brainstorms/
 
-# SNH research drafts — committed now; only the generated paper corpus (large PDFs + SQLite db) is ignored
-drafts/paper-corpus/
+# SNH research — committed; only the generated paper corpus (large PDFs + SQLite db) is ignored
+research/paper-corpus/
 
 # ops: real inventory (droplet IP) and downloaded Ansible collections
 ops/ansible/inventory/hosts.ini
