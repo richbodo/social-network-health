@@ -24,7 +24,8 @@ research/
   planning/                knowledge-base-plan.md — read before any corpus/knowledge-base work
   paper-corpus/            GITIGNORED generated artifacts (SQLite db + PDFs from the resolver)
 tools/paper-resolver/      resolve.py + SKILL.md + usage.md — DOI/title/topic → metadata + legal OA full text
-presentations/             talk prep (dwebcamp-berlin-2026/, ...)
+presentations/             all talk material: pnt-workshop/ (Slidev deck), dwebcamp-berlin-2026/ (in prep)
+                           run a deck with `just slides <folder>`
 drafts/                    STUB ONLY — redirect README for old deep links; don't add content here
 RELATED_REPOS.md           single source of truth for sibling repos and external resources
 ```

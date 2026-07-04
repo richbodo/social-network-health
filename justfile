@@ -25,3 +25,7 @@ provision-caddy:
 # install the Ansible collections the playbook needs (one-time setup)
 ansible-deps:
     cd ops/ansible && ansible-galaxy collection install -r collections/requirements.yml -p collections
+
+# run a Slidev deck from presentations/ locally (opens localhost:3030)
+slides deck="pnt-workshop":
+    cd presentations/{{deck}} && bun install && bun run dev
