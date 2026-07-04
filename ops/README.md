@@ -59,10 +59,13 @@ that owns `/var/www/socialnetwork.health`.
 ## Deploy the site (rsync as operator — no sudo)
 
 ```bash
+just deploy                                        # from the repo root
+# or directly:
 SNH_HOST=rsb@<droplet-or-reserved-ip> ./ops/deploy.sh
 ```
 
-(Or edit the default `SNH_HOST` in `ops/deploy.sh` once the IP is known.)
+(Or edit the default `SNH_HOST` in `ops/deploy.sh` once the IP is known. The repo-root `justfile`
+also wraps provisioning and the live-site check — run `just` to list recipes.)
 
 ## DNS cutover (Cloudflare, DNS-only / grey-cloud)
 
