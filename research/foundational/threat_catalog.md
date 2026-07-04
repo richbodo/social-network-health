@@ -10,7 +10,8 @@ Q-a/b/c resolved, 34 success-model leads). **This reorg = v2.0:** the v1 main ca
 structure, with every inline citation converted to a numbered `[n]` reference into
 `references.md`. Full verbose synthesis with all citation corrections:
 `brainstorms/20260609-snh-threat-catalog.md` (gitignored). Grill log:
-`brainstorms/20260609-102346-snh-session.md`. References: `/Users/rsb/src/host-happily-hub/drafts/references.md`.
+`brainstorms/20260609-102346-snh-session.md`. References: `../library/references.md` (this repo;
+originally drafted in the `host-happily-hub` repo and moved here).
 
 ---
 
@@ -1688,8 +1689,8 @@ stressor)**. No separate K ID; cross-linked.
 
 ---
 
-*End of Threat Catalog v2.0. Source (do not edit): `/Users/rsb/src/host-happily-hub/drafts/threat_catalog.md`
-(v1.1). References: `/Users/rsb/src/host-happily-hub/drafts/references.md`. This v2.0 reorganization
+*End of Threat Catalog v2.0. Source: the v1.1 catalog (originally `host-happily-hub` repo; preserved
+in this repo's git history as `drafts/threat_catalog.v1.1.bak.md`). References: `../library/references.md`. This v2.0 reorganization
 merges the v1 main catalog and the v1.1 Completeness Addendum into one tiered catalog; all ~50 detailed
 entries (A1–A5, B1–B4, C1–C4, D1–D7, E1–E3, F1–F3, G1–G5, H1–H4, I1–I4, J1–J3, K1–K12, K3a–c, RF1,
 Q-a/b/c) are preserved with content unchanged; only LOCATION, CITATIONS (now `[n]`), and the listed

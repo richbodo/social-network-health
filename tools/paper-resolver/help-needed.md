@@ -49,7 +49,7 @@ modes map onto our needs:
    into `.claude/skills/paper-resolver/`. Your call.
 
 ## Proposed first run (once you confirm the above)
-1. Pull the DOIs out of the reference list we're building (`drafts/references.md`) and
+1. Pull the DOIs out of the reference list we're building (`research/library/references.md`) and
    `batch`-resolve them — verify each, fetch OA PDFs where legal, flag metadata-only ones for
    manual retrieval.
 2. Run topic `search`es for **2025–2026** work on remote-worker mental health, community cohesion,
@@ -73,5 +73,5 @@ wired in, because its v3 API needs a **registered key**. If you want it added, g
 say so — it's the one source in the set that needs a key, and it would lift full-text hit rates.
 
 ## Housekeeping
-Files moved to `drafts/skill_experiment/`. `paper-resolver.skill` is a packaged (zip) bundle of
+Files live in `tools/paper-resolver/`. `paper-resolver.skill` is a packaged (zip) bundle of
 the same script, for installing the skill elsewhere.
