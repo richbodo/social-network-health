@@ -33,8 +33,10 @@ RELATED_REPOS.md           single source of truth for sibling repos and external
 
 The live site is `public/socialnetwork-health.html` (self-contained HTML + inline CSS) plus the SVG
 logo — served verbatim by Caddy on a droplet. To change the site, edit that file and run
-`ops/deploy.sh` (rsyncs the two files; needs the droplet SSH setup described in `ops/README.md`).
-Provisioning is `ops/ansible/site.yml`; the real `hosts.ini` is gitignored.
+`just deploy` (rsyncs the two files; needs the droplet SSH setup described in `ops/README.md`).
+Admin/devops tasks run through the root `justfile` — `just` lists the recipes (deploy,
+verify-live, provision, provision-caddy, ansible-deps). Provisioning is `ops/ansible/site.yml`;
+the real `hosts.ini` is gitignored.
 
 **Keep the homepage links in sync:** the HTML deep-links to files in `research/` by GitHub URL. If
 research files move or are renamed, update the HTML and redeploy.
