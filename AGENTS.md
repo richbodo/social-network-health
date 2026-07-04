@@ -7,7 +7,7 @@ site — no web framework, no package manager, no tests.
 ## Directory map
 
 - `public/` — the entire live site (one self-contained HTML file + one SVG). Edit the HTML to
-  change the site; deploy with `ops/deploy.sh`.
+  change the site; deploy with `just deploy` (see the root `justfile` for all devops recipes).
 - `ops/` — Ansible + Caddy provisioning and deploy for the site (see `ops/README.md`).
 - `research/foundational/` — the threat catalog, the egocentric→community research note, the
   social-cohesion note.
