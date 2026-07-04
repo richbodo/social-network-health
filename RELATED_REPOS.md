@@ -22,9 +22,12 @@ Not every sibling directory is related to SNH; the tables below list the ones th
 
 ## Talks & workshop material
 
+All talk material now lives **in this repo** under `presentations/`. The PNT workshop Slidev deck
+was imported from the standalone repo in July 2026:
+
 | Repo | Local path | Remote | Role |
 |---|---|---|---|
-| pnt-workshop | `../pnt-workshop` | github.com/richbodo/pnt-workshop | Slidev slide deck + talk notes for Personal Network Toolkit workshops. Starting point for new decks (e.g. DWeb Camp Berlin 2026 — see `presentations/`). |
+| pnt-workshop | `presentations/pnt-workshop/` (imported; standalone checkout at `../pnt-workshop` is now redundant) | github.com/richbodo/pnt-workshop (candidate for archiving) | Slidev slide deck + talk notes for Personal Network Toolkit workshops. Starting point for new decks (e.g. DWeb Camp Berlin 2026). |
 
 ## Data tooling & wiki (dormant / historical)
 
