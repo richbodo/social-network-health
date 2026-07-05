@@ -1,6 +1,10 @@
 /* Summer-day palette for the DWeb Camp Berlin deck.
    Rooted in the SNH logo colors (blue #2C7AB1 · gold #DCA05A · green #63A375),
-   brightened: warm cream/sky background, deep-blue ink, orange & yellow accents. */
+   brightened: warm cream/sky background, deep-blue ink, orange & yellow accents.
+
+   Note on !important: Slidev's client layout styles and seriph's cover layout
+   (inline background style) load after this sheet, so background/color rules
+   need !important to win the cascade. */
 
 :root {
   --summer-cream: #fffdf4;
@@ -14,45 +18,61 @@
   --summer-green: #4e9e6d;
 }
 
-/* every slide: warm morning-sky gradient instead of charcoal */
+/* every slide: warm morning-sky gradient instead of charcoal/white */
 .slidev-layout {
-  background: linear-gradient(155deg, var(--summer-cream) 0%, var(--summer-sand) 48%, var(--summer-sky) 100%);
-  color: var(--summer-ink);
+  background: linear-gradient(155deg, var(--summer-cream) 0%, var(--summer-sand) 48%, var(--summer-sky) 100%) !important;
+  color: var(--summer-ink) !important;
 }
 
-/* cover + section/center slides get a sunnier version with a soft sun glow */
+/* cover + section/center slides get a sunnier version with a soft sun glow.
+   (also beats seriph cover's inline background style) */
 .slidev-layout.cover,
+.slidev-layout.intro,
 .slidev-layout.center,
 .slidev-layout.section {
   background:
     radial-gradient(ellipse 60% 45% at 78% 8%, rgba(247, 201, 72, 0.45), transparent 70%),
-    linear-gradient(160deg, var(--summer-sand) 0%, var(--summer-cream) 45%, var(--summer-sky) 100%);
+    linear-gradient(160deg, var(--summer-sand) 0%, var(--summer-cream) 45%, var(--summer-sky) 100%) !important;
+  color: var(--summer-ink) !important;
 }
 
 .slidev-layout h1 {
-  color: var(--summer-blue);
+  color: var(--summer-blue) !important;
+}
+
+/* seriph cover/intro h1 uses color: inherit — pin it to blue */
+.slidev-layout.cover h1,
+.slidev-layout.intro h1 {
+  color: var(--summer-blue) !important;
 }
 
 /* sunny underline bar beneath slide titles */
-.slidev-layout > h1:first-child {
+.slidev-layout h1:first-of-type {
   padding-bottom: 0.15em;
-  background-image: linear-gradient(90deg, var(--summer-orange), var(--summer-yellow) 55%, transparent 90%);
+  background-image: linear-gradient(90deg, var(--summer-orange), var(--summer-yellow) 55%, transparent 90%) !important;
   background-repeat: no-repeat;
   background-size: 100% 4px;
   background-position: 0 100%;
 }
 
+/* no underline bar on the big centered titles */
+.slidev-layout.cover h1:first-of-type,
+.slidev-layout.center h1:first-of-type,
+.slidev-layout.section h1:first-of-type {
+  background-image: none !important;
+}
+
 .slidev-layout h2,
 .slidev-layout h3 {
-  color: var(--summer-ink);
+  color: var(--summer-ink) !important;
 }
 
 .slidev-layout a {
-  color: var(--summer-orange);
+  color: var(--summer-orange) !important;
   border-bottom: 1px solid rgba(239, 138, 45, 0.4);
 }
 .slidev-layout a:hover {
-  color: var(--summer-blue);
+  color: var(--summer-blue) !important;
   border-bottom-color: var(--summer-blue);
 }
 
@@ -74,18 +94,18 @@
 }
 
 .slidev-layout blockquote {
-  background: rgba(247, 201, 72, 0.16);
+  background: rgba(247, 201, 72, 0.16) !important;
   border-left: 4px solid var(--summer-yellow);
-  color: var(--summer-ink-soft);
+  color: var(--summer-ink-soft) !important;
 }
 
 .slidev-layout code {
-  background: rgba(33, 121, 184, 0.10);
+  background: rgba(33, 121, 184, 0.10) !important;
   color: var(--summer-ink);
 }
 
 .slidev-layout table th {
-  background: rgba(247, 201, 72, 0.28);
+  background: rgba(247, 201, 72, 0.28) !important;
   color: var(--summer-ink);
 }
 .slidev-layout table td {

@@ -1,6 +1,6 @@
 ---
 theme: seriph
-background: none
+background: '#fffdf4'
 colorSchema: light
 themeConfig:
   primary: '#2179b8'
