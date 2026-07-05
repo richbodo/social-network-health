@@ -1,6 +1,9 @@
 ---
 theme: seriph
 background: none
+colorSchema: light
+themeConfig:
+  primary: '#2179b8'
 title: Rooting the Social Graph with Personal Network Applications
 info: |
   DWeb Camp Berlin 2026 — Hackers Lab workshop.
