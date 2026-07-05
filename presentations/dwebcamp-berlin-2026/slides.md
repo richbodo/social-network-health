@@ -145,11 +145,16 @@ layout: center
 
 # The layers
 
-**TODO:** layers diagram from the PNA spec ("how the pieces fit together")
+<img src="/pna-three-layers.svg" alt="The PNA Spec in three layers: Goals (the why) → architectural commitments (the what, checkable) → realizations & constraints (the how, per stack)" class="rounded-lg shadow-lg border border-gray-300 bg-white max-h-105 mx-auto" />
+
+<div class="text-xs opacity-60 mt-1 text-center">The dividing test: does it survive a total technology swap? (PNA Spec § How the pieces fit together)</div>
 
 <!--
-Pull the figure from personal_network_toolkit/spec (figures/). One walk-through
-sentence per layer, no more. This slide is a picture, not a paragraph.
+One sentence per layer, no more: Goals = the why (the four outcomes you saw).
+ACs = the what — checkable promises with stable IDs, the unit of conformance.
+Realizations = the how on ONE stack — no IDs, doesn't survive the swap.
+Worked example if asked: AC-11 "one writer at a time" → OPFS worker on browser,
+file-lock on native. One commitment, two realizations.
 -->
 
 ---
