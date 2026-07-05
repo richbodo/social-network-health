@@ -1,6 +1,12 @@
 # DWeb Camp Berlin 2026 — presentation
 
 Talk prep for Decentralized Web Camp Berlin (week of 2026-07-06).
+Talk page: https://talx.dod.ngo/dwebcamp-2026/talk/PV8FJZ/
+
+- `slides.md` — the Slidev deck (~22 slides; run with `just slides dwebcamp-berlin-2026`).
+  Structure: history & positioning (1–6) → PNA toolkit (7–11) → safety in practice (12–14) →
+  the plan & two opportunities (15–19) → workshop pivot, demo, close (20–22). `TODO` markers:
+  bio, layers diagram, AI-egress screenshots, threat-continuum diagram, pre-recorded demo.
 
 - `notes_pre_berlin.md` — pre-conference thinking: what to bring back into the discussion
   (help-seeking protocol, roadmap update, protocol primitives, use cases per Kev's suggestion,
