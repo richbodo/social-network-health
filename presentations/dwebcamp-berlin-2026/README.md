@@ -6,7 +6,7 @@ Talk page: https://talx.dod.ngo/dwebcamp-2026/talk/PV8FJZ/
 - `slides.md` — the Slidev deck (~22 slides; run with `just slides dwebcamp-berlin-2026`).
   Structure: history & positioning (1–6) → PNA toolkit (7–11) → safety in practice (12–14) →
   the plan & two opportunities (15–19) → workshop pivot, demo, close (20–22). `TODO` markers:
-  bio, layers diagram, threat-continuum diagram, pre-recorded demo. Screenshots live in
+  bio, threat-continuum diagram, pre-recorded demo. Screenshots live in
   `public/screenshots/` (PRM shots regenerate via `scripts/prm_deck_shots.py`; fellows shots
   come from Rich's saved pages + the fellows repo's external-access walkthrough images).
 
