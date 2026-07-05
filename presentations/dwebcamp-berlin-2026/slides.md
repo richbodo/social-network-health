@@ -15,12 +15,22 @@ transition: slide-left
 mdc: true
 ---
 
-# Rooting the Social Graph with Personal Network Applications
+<img src="/snh-logo.svg" alt="Social Network Health" class="w-28 mx-auto mb-4" />
 
-Rich Bodo · DWeb Camp Berlin 2026
+# Social Network Health Project
 
-<div class="text-sm opacity-70 mt-8">
-socialnetwork.health · Hackers Lab · talk ~20 min, then we work
+### Rooting the Social Graph with Personal Network Applications
+
+<div class="flex items-center justify-center gap-3 mt-10">
+  <img src="/rich-headshot-2016.jpeg" alt="Rich Bodo" class="w-14 h-14 rounded-full object-cover border-2 border-[#f7c948]" />
+  <div class="text-left leading-tight">
+    <div>Rich Bodo</div>
+    <div class="text-sm opacity-70">DWeb Camp Berlin 2026 · Hackers Lab</div>
+  </div>
+</div>
+
+<div class="text-sm opacity-70 mt-6">
+socialnetwork.health · talk ~20 min, then we work
 </div>
 
 <!--
@@ -159,13 +169,27 @@ build a correct mental model, not just so a linter passes.
 
 # Home-cooked meals
 
-| | status | what it is |
-|---|---|---|
-| **fellows_local_db** | ✅ complete, in use | local-first community directory (EHF fellows) |
-| **PRM** | 🔨 in progress | personal relationship manager — the general case |
+<div class="grid grid-cols-2 gap-6 items-start">
+<div>
 
-- Both are **reference designs**: they exist to prove the toolkit's constraints are livable
-- Made *for* specific people, rapidly — the home-cooked-meal development model
+| | status |
+|---|---|
+| **fellows_local_db** | ✅ complete, in use |
+| **PRM** | 🔨 in progress |
+
+- Both are **reference designs**: they prove the toolkit's constraints are livable
+- Made *for* specific people, rapidly — the home-cooked-meal model
+
+<div class="text-xs opacity-60 mt-2">TODO: fellows_local_db directory screenshot (Rich's contact page) — needs the fellows DB</div>
+
+</div>
+<div>
+
+<img src="/screenshots/prm-contact-turing.jpg" alt="PRM contacts view — Alan Turing (fixture data)" class="rounded-lg shadow-lg border border-gray-300" />
+<div class="text-xs opacity-60 mt-1 text-center">PRM on fixture data — every contact stays on this device</div>
+
+</div>
+</div>
 
 <!--
 prt (the 2025 attempt) is the ancestor of PRM — the same idea, now survivable
@@ -176,11 +200,24 @@ because the toolkit holds the safety line.
 
 # AI egress in practice
 
-**TODO:** screenshots — fellows_local_db and PRM interacting with AIs (local + cloud)
+<div class="grid grid-cols-2 gap-6 items-start">
+<div>
 
 - Assumption: to be *usable*, a PNA must talk to AIs — local or cloud
 - So the spec models the AI as **egress, runtime adversary, and consumer of the spec itself**
+- Granting cloud AI access = a **named, visible, reversible exception** (EX-CLOUD-LLM) — never a silent default
 - Solving AI egress solves the general case: OS automation, integrations, whatever's next
+
+<div class="text-xs opacity-60 mt-2">TODO: fellows_local_db settings screenshot (Claude Desktop integration) — needs the fellows DB</div>
+
+</div>
+<div>
+
+<img src="/screenshots/prm-access-ai-on.jpg" alt="PRM External Access view with cloud AI access active" class="rounded-lg shadow-lg border border-gray-300" />
+<div class="text-xs opacity-60 mt-1 text-center">PRM External Access — cloud AI on: banner, data floor, revoke, return to PNA mode</div>
+
+</div>
+</div>
 
 <!--
 Show, don't tell: the disclosure UX — payload preview, channel choice, consent —
@@ -207,10 +244,22 @@ audience, naming the unhandled threat is more credible than claiming coverage.
 
 # Safety as continuous validation
 
+<div class="grid grid-cols-2 gap-6 items-start">
+<div>
+
 - Assumed future: home-cooked apps built and rebuilt in **near real time**, per person, per community
 - The only safety story that survives that pace: **specify the commitments and constraints, validate them continuously**
-- Spec → conformance suite → every rebuild re-earns trust
+- Spec → conformance suite → every rebuild re-earns trust — *checked, not awarded*
 - The user's mental model is part of the system under test
+
+</div>
+<div>
+
+<img src="/screenshots/fellows-conformance-report.jpg" alt="fellows_local_db PNA conformance report" class="rounded-lg shadow-lg border border-gray-300 max-h-90" />
+<div class="text-xs opacity-60 mt-1 text-center">fellows_local_db conformance report — 37/41 rows, evidence-linked</div>
+
+</div>
+</div>
 
 <!--
 This closes Part I. Pause here — first natural workshop beat. "Does this development
