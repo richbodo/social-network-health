@@ -1,0 +1,96 @@
+/* Summer-day palette for the DWeb Camp Berlin deck.
+   Rooted in the SNH logo colors (blue #2C7AB1 · gold #DCA05A · green #63A375),
+   brightened: warm cream/sky background, deep-blue ink, orange & yellow accents. */
+
+:root {
+  --summer-cream: #fffdf4;
+  --summer-sand: #fdf3dc;
+  --summer-sky: #e6f3fc;
+  --summer-ink: #24425f;
+  --summer-ink-soft: #47617c;
+  --summer-blue: #2179b8;
+  --summer-orange: #ef8a2d;
+  --summer-yellow: #f7c948;
+  --summer-green: #4e9e6d;
+}
+
+/* every slide: warm morning-sky gradient instead of charcoal */
+.slidev-layout {
+  background: linear-gradient(155deg, var(--summer-cream) 0%, var(--summer-sand) 48%, var(--summer-sky) 100%);
+  color: var(--summer-ink);
+}
+
+/* cover + section/center slides get a sunnier version with a soft sun glow */
+.slidev-layout.cover,
+.slidev-layout.center,
+.slidev-layout.section {
+  background:
+    radial-gradient(ellipse 60% 45% at 78% 8%, rgba(247, 201, 72, 0.45), transparent 70%),
+    linear-gradient(160deg, var(--summer-sand) 0%, var(--summer-cream) 45%, var(--summer-sky) 100%);
+}
+
+.slidev-layout h1 {
+  color: var(--summer-blue);
+}
+
+/* sunny underline bar beneath slide titles */
+.slidev-layout > h1:first-child {
+  padding-bottom: 0.15em;
+  background-image: linear-gradient(90deg, var(--summer-orange), var(--summer-yellow) 55%, transparent 90%);
+  background-repeat: no-repeat;
+  background-size: 100% 4px;
+  background-position: 0 100%;
+}
+
+.slidev-layout h2,
+.slidev-layout h3 {
+  color: var(--summer-ink);
+}
+
+.slidev-layout a {
+  color: var(--summer-orange);
+  border-bottom: 1px solid rgba(239, 138, 45, 0.4);
+}
+.slidev-layout a:hover {
+  color: var(--summer-blue);
+  border-bottom-color: var(--summer-blue);
+}
+
+.slidev-layout strong {
+  color: var(--summer-blue);
+}
+.slidev-layout em {
+  color: var(--summer-green);
+  font-style: italic;
+}
+
+/* list markers in orange, numbered markers in green */
+.slidev-layout ul > li::marker {
+  color: var(--summer-orange);
+}
+.slidev-layout ol > li::marker {
+  color: var(--summer-green);
+  font-weight: 600;
+}
+
+.slidev-layout blockquote {
+  background: rgba(247, 201, 72, 0.16);
+  border-left: 4px solid var(--summer-yellow);
+  color: var(--summer-ink-soft);
+}
+
+.slidev-layout code {
+  background: rgba(33, 121, 184, 0.10);
+  color: var(--summer-ink);
+}
+
+.slidev-layout table th {
+  background: rgba(247, 201, 72, 0.28);
+  color: var(--summer-ink);
+}
+.slidev-layout table td {
+  border-color: rgba(36, 66, 95, 0.15);
+}
+.slidev-layout tr {
+  border-color: rgba(36, 66, 95, 0.15) !important;
+}
