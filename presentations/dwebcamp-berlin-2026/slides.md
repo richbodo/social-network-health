@@ -169,27 +169,22 @@ build a correct mental model, not just so a linter passes.
 
 # Home-cooked meals
 
-<div class="grid grid-cols-2 gap-6 items-start">
+<div class="grid grid-cols-2 gap-4 items-start mt-2">
 <div>
 
-| | status |
-|---|---|
-| **fellows_local_db** | ✅ complete, in use |
-| **PRM** | 🔨 in progress |
-
-- Both are **reference designs**: they prove the toolkit's constraints are livable
-- Made *for* specific people, rapidly — the home-cooked-meal model
-
-<div class="text-xs opacity-60 mt-2">TODO: fellows_local_db directory screenshot (Rich's contact page) — needs the fellows DB</div>
+<img src="/screenshots/fellows-contact-rich.jpg" alt="EHF Fellows Directory — Rich's profile with the fellows list" class="rounded-lg shadow-lg border border-gray-300" />
+<div class="text-xs opacity-60 mt-1 text-center"><strong>fellows_local_db</strong> — ✅ complete, in use · 515 fellows, local-only</div>
 
 </div>
 <div>
 
 <img src="/screenshots/prm-contact-turing.jpg" alt="PRM contacts view — Alan Turing (fixture data)" class="rounded-lg shadow-lg border border-gray-300" />
-<div class="text-xs opacity-60 mt-1 text-center">PRM on fixture data — every contact stays on this device</div>
+<div class="text-xs opacity-60 mt-1 text-center"><strong>PRM</strong> — 🔨 in progress · fixture data, nothing leaves the device</div>
 
 </div>
 </div>
+
+- Both are **reference designs**: they prove the toolkit's constraints are livable — made *for* specific people, rapidly
 
 <!--
 prt (the 2025 attempt) is the ancestor of PRM — the same idea, now survivable
@@ -208,7 +203,7 @@ because the toolkit holds the safety line.
 - Granting cloud AI access = a **named, visible, reversible exception** (EX-CLOUD-LLM) — never a silent default
 - Solving AI egress solves the general case: OS automation, integrations, whatever's next
 
-<div class="text-xs opacity-60 mt-2">TODO: fellows_local_db settings screenshot (Claude Desktop integration) — needs the fellows DB</div>
+<div class="text-xs opacity-60 mt-2">TODO: fellows_local_db settings screenshot (Claude Desktop integration) — save the app's Settings page as a complete webpage (like the contact page) and I'll capture it</div>
 
 </div>
 <div>
