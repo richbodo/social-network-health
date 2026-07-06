@@ -5,7 +5,7 @@ threat catalog. Each source appears **once**, with (where the document supplies 
 title, venue, identifier (DOI / PMC / PMID / arXiv / URL), a brief scale/context note, and the
 threat IDs that cite it.
 
-**Source document.** `../foundational/threat_catalog.md` (this repo; originally drafted in the
+**Source document.** `../threat_catalog.md` (this repo; originally drafted in the
 `host-happily-hub` repo as v1.1, 2026-06-09; main catalog A1–K6 + Completeness Addendum §§1–6).
 
 **Compiled.** 2026-06-10.

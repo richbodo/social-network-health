@@ -322,7 +322,7 @@ machinery at all.
 - Trap: a 50-person group chat is **not** 1,225 friendships — affiliation ≠ ties
 
 <!--
-One-slide compression of the explainer (research/foundational/). If interest is
+One-slide compression of the explainer (research/measurement/). If interest is
 high, the routing diagram and estimator menu are in the repo — point, don't present.
 -->
 

@@ -9,11 +9,13 @@ site — no web framework, no package manager, no tests.
 - `public/` — the entire live site (one self-contained HTML file + one SVG). Edit the HTML to
   change the site; deploy with `just deploy` (see the root `justfile` for all devops recipes).
 - `ops/` — Ansible + Caddy provisioning and deploy for the site (see `ops/README.md`).
-- `research/foundational/` — the threat catalog, the egocentric→community research note, the
-  social-cohesion note.
-- `research/library/` — `references.md` (append-only `[n]` numbering — never renumber) and
-  `summaries/` (per-paper research primitives).
-- `research/planning/` — `knowledge-base-plan.md`; read it before corpus/knowledge-base work.
+- `research/measurement/` — the egocentric→community research note, the community-network-health
+  explainer, the social-cohesion note.
+- `research/threat_modelling/` — the threat catalog and its bibliography
+  (`references/references.md` — append-only `[n]` numbering, never renumber).
+- `research/protocols/` — protocol design notes (SNH notification protocol).
+- `research/research_library/` — per-paper `research_summaries/`, the knowledge-base plan
+  (`planning/` — read before corpus work), and the gitignored `paper-corpus/`.
 - `tools/paper-resolver/` — Python tool resolving DOIs/titles/topics to metadata + legal
   open-access full text; see its `usage.md` before running.
 - `presentations/` — talk preparation.

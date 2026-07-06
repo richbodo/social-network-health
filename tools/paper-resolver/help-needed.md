@@ -49,7 +49,7 @@ modes map onto our needs:
    into `.claude/skills/paper-resolver/`. Your call.
 
 ## Proposed first run (once you confirm the above)
-1. Pull the DOIs out of the reference list we're building (`research/library/references.md`) and
+1. Pull the DOIs out of the reference list we're building (`research/threat_modelling/references/references.md`) and
    `batch`-resolve them — verify each, fetch OA PDFs where legal, flag metadata-only ones for
    manual retrieval.
 2. Run topic `search`es for **2025–2026** work on remote-worker mental health, community cohesion,

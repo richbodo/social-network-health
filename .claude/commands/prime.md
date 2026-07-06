@@ -4,10 +4,12 @@ Prime yourself on the Social Network Health project before starting work. Do the
 report back:
 
 1. Read `README.md` and `RELATED_REPOS.md` (the map of sibling repos and external resources).
-2. Read `research/planning/knowledge-base-plan.md` (current research-infrastructure plan).
-3. Skim the section headings of `research/foundational/threat_catalog.md` and
-   `research/foundational/egocentric_to_community_network_health_research_note.md` — don't read
-   them in full unless the task needs it.
+2. Read `research/research_library/planning/knowledge-base-plan.md` (current
+   research-infrastructure plan).
+3. Skim the section headings of `research/threat_modelling/threat_catalog.md`,
+   `research/measurement/egocentric_to_community_network_health_research_note.md`, and
+   `research/protocols/notification-protocol.md` — don't read them in full unless the task
+   needs it.
 4. Run `ls ..` and note which of the related repos from `RELATED_REPOS.md` are actually present on
    this host (they live one level up from this repo root, e.g. `../prm`,
    `../personal_network_toolkit`).
