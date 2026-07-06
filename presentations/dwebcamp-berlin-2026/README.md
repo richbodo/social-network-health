@@ -24,3 +24,10 @@ follow them when adding slides or art, and verify by headless-browser screenshot
   + talk notes from the Personal Network Toolkit workshop).
 
 Presentation content goes in this folder.
+
+**Motif reference:** Rich's video-short outro animation ("VineLeavesFlowers" — two sage-green
+vines grow up the sides, sprouting leaves and flower pops, framing the SNH logo + project
+title; animated by Steve Worthington). Masters incl. transparent .mov:
+https://drive.google.com/drive/u/0/folders/1K2G4NOS0wMUb4JjjOgUUk6ql0sa40jH0 — the deck's
+growth-themed background rubric should stay in this spirit (soft greens, playful growth,
+brand palette).
