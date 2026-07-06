@@ -396,15 +396,13 @@ layout: center
 class: text-center
 ---
 
-# Thanks — now let's work
+# **Thanks**
 
-**socialnetwork.health** · toolkit wiki · research library
+### <a href="https://socialnetwork.health" target="_blank">https://socialnetwork.health</a>
 
-github.com/richbodo/personal_network_toolkit · github.com/richbodo/social-network-health
-
-<div class="text-sm opacity-70 mt-8">
-Protocol design note: research/protocols/notification-protocol.md<br>
-Explainer: research/foundational/community-network-health-explainer.md
+<div class="mt-12 text-lg max-w-150 mx-auto">
+If this is the kind of thing you want to see worked on, please reach out —<br>
+<strong>discuss@socialnetwork.health</strong>
 </div>
 
 <!--
