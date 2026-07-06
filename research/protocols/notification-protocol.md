@@ -4,7 +4,7 @@
 **Status:** v0.2 (2026-07-04) — idea-stage design, workshopped for the DWeb Camp Berlin 2026
 talk and aligned with the published talk description (where it appears as **Opportunity 2**).
 Grill log: `brainstorms/20260704-notification-protocol-grill.md` (gitignored).
-Threat references (`G1`, `Q-a`, `RF1`, …) resolve to `../foundational/threat_catalog.md`.
+Threat references (`G1`, `Q-a`, `RF1`, …) resolve to `../threat_modelling/threat_catalog.md`.
 
 ---
 
@@ -26,7 +26,7 @@ individually enumerated — without centralizing anyone's relationship data.
 
 **Scope.** In scope now: user-initiated help requests (this note). Named but deferred:
 **analysis-initiated triggers** — the SNH analysis layer (see
-`../foundational/community-network-health-explainer.md`) emitting "someone should reach out
+`../measurement/community-network-health-explainer.md`) emitting "someone should reach out
 to X" prompts as a second trigger class over the *same* state machine. Out of scope: the
 anonymized-statistics protocol (Choir) — *the statistics protocol measures; the notification
 protocol acts.*
@@ -222,7 +222,7 @@ The step-3 content is carried by two named opportunities:
 
 1. **Opportunity 1 — "Macrostructure from Microstructure": community analytics.**
    Sociocentric insight from egocentric data without aggregating identifying information
-   (see `../foundational/community-network-health-explainer.md`). The *measuring* half.
+   (see `../measurement/community-network-health-explainer.md`). The *measuring* half.
 2. **Opportunity 2 — "Connection Requests with Staged Disclosure": this protocol.** Opt-in
    access to broader communities, with pre-generated fallbacks. The *acting* half — the
    first designed intervention.
@@ -257,7 +257,7 @@ degradation table.
 
 ---
 
-*Related: `../foundational/threat_catalog.md` (PROTO layer),
-`../foundational/community-network-health-explainer.md` (the measuring counterpart),
-`../planning/knowledge-base-plan.md` (thesis), PNT roadmap Tier 3–4 (mutual-aid PNA reference
+*Related: `../threat_modelling/threat_catalog.md` (PROTO layer),
+`../measurement/community-network-health-explainer.md` (the measuring counterpart),
+`../research_library/planning/knowledge-base-plan.md` (thesis), PNT roadmap Tier 3–4 (mutual-aid PNA reference
 design; reachability-for-help-seeking seam).*

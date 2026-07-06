@@ -164,6 +164,23 @@
     }
     .links .sub a { color: var(--ink-soft); }
 
+    /* clearly-clickable sub-item lists under a project card */
+    .linklist {
+      margin: 12px 0 0;
+      padding-left: 22px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--ink-soft);
+    }
+    .linklist li { margin: 4px 0; }
+    .linklist li::marker { color: var(--ink-muted); }
+    .linklist a {
+      color: var(--link);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .linklist a:hover { color: var(--ink); }
+
     /* ─── footer ───────────────────────────────────────────────────── */
     footer {
       margin-top: 56px;
@@ -193,7 +210,10 @@
 
   <div class="intro" data-screen-label="Intro">
     <p>
-      A working group studying social-network health and applying it to distributed communities. The materials below are organized for developers and researchers who want to dig in.
+      A working group studying social network health and applying it to distributed communities. The materials below are organized for developers and researchers.
+    </p>
+    <p>
+      (Join the <a href="https://groups.google.com/a/socialnetwork.health/g/discuss" target="_blank" rel="noopener">Discussion List</a> or <a href="mailto:rich@socialnetwork.health">Contact the Admin</a>)
     </p>
   </div>
 
@@ -211,8 +231,11 @@
       </p>
       <div class="links">
         <a href="https://github.com/richbodo/personal_network_toolkit" target="_blank" rel="noopener">github.com/richbodo/personal_network_toolkit</a>
-        <span class="sub">reference designs: <a href="https://github.com/richbodo/fellows_local_db" target="_blank" rel="noopener">fellows_local_db</a> (directory archive PNA) · <a href="https://github.com/richbodo/prm" target="_blank" rel="noopener">PRM</a> (personal relationship manager) · <a href="https://github.com/richbodo/prt" target="_blank" rel="noopener">PRT</a> (archived; earlier basis for PRM)</span>
       </div>
+      <ul class="linklist">
+        <li><a href="https://github.com/richbodo/personal_network_toolkit/blob/main/spec/PNA_Spec.md" target="_blank" rel="noopener">Personal Network Application Specification</a></li>
+        <li><a href="https://github.com/richbodo/personal_network_toolkit/blob/main/reference_designs/README.md" target="_blank" rel="noopener">Reference Designs</a> — <a href="https://github.com/richbodo/fellows_local_db" target="_blank" rel="noopener">fellows_local_db</a> (directory archive PNA) and <a href="https://github.com/richbodo/prm" target="_blank" rel="noopener">PRM</a> (personal relationship manager)</li>
+      </ul>
     </article>
 
     <!-- Temporarily hidden — Choir protocol card
@@ -232,8 +255,8 @@
     -->
   </section>
 
-  <section data-screen-label="Foundational documents">
-    <h2>Foundational documents</h2>
+  <section data-screen-label="Research in progress">
+    <h2>Research in progress</h2>
 
     <article class="project" id="pna-spec" style="--c: var(--c-gold);">
       <div class="project-head">
@@ -253,28 +276,42 @@
     <article class="project" id="threat-catalog" style="--c: var(--c-green);">
       <div class="project-head">
         <span class="project-dot" aria-hidden="true"></span>
-        <h3><a href="https://github.com/richbodo/social-network-health/blob/main/research/foundational/threat_catalog.md" target="_blank" rel="noopener">Threat Catalog</a></h3>
+        <h3><a href="https://github.com/richbodo/social-network-health/blob/main/research/threat_modelling/threat_catalog.md" target="_blank" rel="noopener">Threat Catalog</a></h3>
         <span class="status">doc</span>
       </div>
       <p>
         A working threat model for remote-worker and distributed-community social-network health — the risks this project's research responds to.
       </p>
       <div class="links">
-        <a href="https://github.com/richbodo/social-network-health/blob/main/research/foundational/threat_catalog.md" target="_blank" rel="noopener">read the catalog →</a>
+        <a href="https://github.com/richbodo/social-network-health/blob/main/research/threat_modelling/threat_catalog.md" target="_blank" rel="noopener">read the catalog →</a>
       </div>
     </article>
 
     <article class="project" id="ego-community" style="--c: var(--c-plum);">
       <div class="project-head">
         <span class="project-dot" aria-hidden="true"></span>
-        <h3><a href="https://github.com/richbodo/social-network-health/blob/main/research/foundational/egocentric_to_community_network_health_research_note.md" target="_blank" rel="noopener">Egocentric → Community Network Health</a></h3>
+        <h3><a href="https://github.com/richbodo/social-network-health/blob/main/research/measurement/egocentric_to_community_network_health_research_note.md" target="_blank" rel="noopener">Egocentric → Community Network Health</a></h3>
         <span class="status">research note</span>
       </div>
       <p>
         A proposal for estimating community-level social-network-health indicators from opt-in personal (egocentric) relationship graphs — using zero-knowledge proofs, secure aggregation, and differential privacy instead of centralizing anyone's private data.
       </p>
       <div class="links">
-        <a href="https://github.com/richbodo/social-network-health/blob/main/research/foundational/egocentric_to_community_network_health_research_note.md" target="_blank" rel="noopener">read the note →</a>
+        <a href="https://github.com/richbodo/social-network-health/blob/main/research/measurement/egocentric_to_community_network_health_research_note.md" target="_blank" rel="noopener">read the note →</a>
+      </div>
+    </article>
+
+    <article class="project" id="notification-protocol" style="--c: var(--c-blue);">
+      <div class="project-head">
+        <span class="project-dot" aria-hidden="true"></span>
+        <h3><a href="https://github.com/richbodo/social-network-health/blob/main/research/protocols/notification-protocol.md" target="_blank" rel="noopener">SNH Notification Protocol</a></h3>
+        <span class="status">design note</span>
+      </div>
+      <p>
+        Connection requests with staged disclosure — a help-seeking protocol that finds a willing, topical, available person across your own contacts or whole communities, revealing as little as possible to as few as possible at every step, with pre-generated fallbacks when no one is available.
+      </p>
+      <div class="links">
+        <a href="https://github.com/richbodo/social-network-health/blob/main/research/protocols/notification-protocol.md" target="_blank" rel="noopener">read the design note →</a>
       </div>
     </article>
   </section>

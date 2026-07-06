@@ -43,7 +43,7 @@ was imported from the standalone repo in July 2026:
 ## Non-repo resources
 
 - **Toolkit wiki (live):** https://toolkit.socialnetwork.health — MediaWiki of best practices and research findings; the primary body of published SNH work.
-- **Paper corpus (Google Drive, public):** https://drive.google.com/drive/u/0/folders/1CQIZnHCojqnvGuiOmn9UR7Jbf9nGlICD — full papers & metadata behind `research/library/references.md`.
+- **Paper corpus (Google Drive, public):** https://drive.google.com/drive/u/0/folders/1CQIZnHCojqnvGuiOmn9UR7Jbf9nGlICD — full papers & metadata behind `research/threat_modelling/references/references.md`.
 - **SNH GPT — Researcher:** custom GPT grounded in the corpus (linked from the homepage).
 - **Video archive:** https://www.youtube.com/@SocialNetworkHealth
 - **Live site:** https://socialnetwork.health — served from this repo's `public/`, deployed via `ops/`.

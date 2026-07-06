@@ -12,11 +12,13 @@ and pointers to the software efforts we are developing in other places.
 
 ## Layout
 
-- `research/foundational/` — the foundational documents: threat catalog, egocentric→community
-  network-health research note, social-cohesion note
-- `research/library/` — the bibliography (`references.md`) and per-paper summaries
-  (`summaries/` — where papers applicable to proposed protocols are summarized and tested)
-- `research/planning/` — plans for research infrastructure (knowledge base, corpus tooling)
+- `research/measurement/` — measuring community network health from egocentric data: the
+  egocentric→community research note, the explainer, the social-cohesion note
+- `research/threat_modelling/` — the threat catalog and its bibliography (`references/`)
+- `research/protocols/` — protocol design notes (the SNH notification protocol)
+- `research/research_library/` — per-paper `research_summaries/` (where papers applicable to
+  proposed protocols are summarized and tested), the knowledge-base plan (`planning/`), and
+  the gitignored paper corpus
 - `tools/paper-resolver/` — tool for resolving papers to metadata + legal open-access full text
 - `presentations/` — talk preparation
 - `public/` + `ops/` — the static website and its droplet deploy
