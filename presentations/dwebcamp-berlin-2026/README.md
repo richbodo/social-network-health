@@ -10,6 +10,13 @@ Talk page: https://talx.dod.ngo/dwebcamp-2026/talk/PV8FJZ/
   `public/screenshots/` (PRM shots regenerate via `scripts/prm_deck_shots.py`; fellows shots
   come from Rich's saved pages + the fellows repo's external-access walkthrough images).
 
+**Background rubric:** `global-bottom.vue` paints a "dawn → summer day" progression keyed to
+fractional progress through the deck (never absolute slide numbers — slide count will change).
+Wash brightens throughout; sun disc appears at the halfway mark; rays, then grass, then
+staggered sunflowers; everything fully present on the last slide. No big leap between adjacent
+slides. The schedule and editing rules are in the header comment of `global-bottom.vue` —
+follow them when adding slides or art, and verify by headless-browser screenshots, not curl.
+
 - `notes_pre_berlin.md` — pre-conference thinking: what to bring back into the discussion
   (help-seeking protocol, roadmap update, protocol primitives, use cases per Kev's suggestion,
   PRM + fellows_local_db + Ollama demo idea).
