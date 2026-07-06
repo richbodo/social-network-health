@@ -13,7 +13,7 @@ OpenAlex + Unpaywall are responding from this machine.
 # run from the repo root
 RESOLVER_EMAIL=richbodo@gmail.com \
 python3 tools/paper-resolver/resolve.py \
-  --db research/paper-corpus/resolver.db \
+  --db research/research_library/paper-corpus/resolver.db \
   --json doi 10.1371/journal.pone.0173644
 ```
 
@@ -22,8 +22,8 @@ python3 tools/paper-resolver/resolve.py \
 # run from the repo root
 export RESOLVER_EMAIL=richbodo@gmail.com
 S=tools/paper-resolver/resolve.py
-D=research/paper-corpus/resolver.db
-O=research/paper-corpus/pdfs
+D=research/research_library/paper-corpus/resolver.db
+O=research/research_library/paper-corpus/pdfs
 python3 "$S" --db "$D" --download --extract --out "$O" search "<topic query>" --limit 15
 ```
 Global flags (`--db --download --extract --out`) go BEFORE `search`; `--limit` is a search-subcommand
@@ -37,9 +37,9 @@ filter results by `year` after the run (the script has no `--from-year` flag yet
 - **Email:** `richbodo@gmail.com` (via `RESOLVER_EMAIL`; required by Unpaywall, polite pool for OpenAlex).
 - **Script:** `tools/paper-resolver/resolve.py` (the loose copy; `paper-resolver.skill`
   is the installable bundle).
-- **Corpus db:** `research/paper-corpus/resolver.db` (the SQLite cache *and* corpus index — reruns are
-  cheap/idempotent). The whole `research/paper-corpus/` dir is gitignored (generated artifacts).
-- **Downloads (when used):** plan to use `--download --extract --out research/paper-corpus/pdfs`.
+- **Corpus db:** `research/research_library/paper-corpus/resolver.db` (the SQLite cache *and* corpus index — reruns are
+  cheap/idempotent). The whole `research/research_library/paper-corpus/` dir is gitignored (generated artifacts).
+- **Downloads (when used):** plan to use `--download --extract --out research/research_library/paper-corpus/pdfs`.
 
 ## Gotchas (learned the hard way)
 1. **Global flags BEFORE the subcommand.** `... --json doi <DOI>` works; `... doi <DOI> --json`

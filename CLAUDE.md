@@ -18,11 +18,13 @@ pass; there are none. (A TanStack/Bun app used to live here; it was removed in c
 ```
 public/                    the ENTIRE live site: one HTML file + one SVG logo
 ops/                       Ansible + Caddy provisioning/deploy for the site (DigitalOcean droplet)
-research/
-  foundational/            threat_catalog.md, egocentric→community research note, social_cohesion.md
-  library/                 references.md (the bibliography) + summaries/ (per-paper research primitives)
-  planning/                knowledge-base-plan.md — read before any corpus/knowledge-base work
-  paper-corpus/            GITIGNORED generated artifacts (SQLite db + PDFs from the resolver)
+research/                  organized BY TOPIC:
+  measurement/             community-network-health-explainer.md, egocentric→community note, social_cohesion.md
+  threat_modelling/        threat_catalog.md + references/references.md (its bibliography)
+  protocols/               notification-protocol.md (+ future metrics/statistics protocol notes)
+  research_library/        research_summaries/ (per-paper subfolders: summary + code),
+                           planning/knowledge-base-plan.md (read before corpus work),
+                           paper-corpus/ (GITIGNORED generated artifacts: SQLite db + PDFs)
 tools/paper-resolver/      resolve.py + SKILL.md + usage.md — DOI/title/topic → metadata + legal OA full text
 presentations/             all talk material: pnt-workshop/ (Slidev deck), dwebcamp-berlin-2026/ (in prep)
                            run a deck with `just slides <folder>`
@@ -44,11 +46,11 @@ research files move or are renamed, update the HTML and redeploy.
 
 ## research/ conventions
 
-- `research/library/references.md` numbering is **append-only** (`[n]` in order of first
-  appearance, never renumbered) — documents cite `[n]` and must stay valid. Add new sources at the
-  end with the next free number.
-- `research/library/summaries/` holds per-paper "research primitive" summaries (one folder per
-  paper, markdown + example code).
+- `research/threat_modelling/references/references.md` numbering is **append-only** (`[n]` in
+  order of first appearance, never renumbered) — documents cite `[n]` and must stay valid. Add
+  new sources at the end with the next free number.
+- `research/research_library/research_summaries/` holds per-paper "research primitive" summaries
+  (one subfolder per paper: summary markdown + derived code).
 - The threat catalog is v2.0; the old v1.1 exists only in git history (the `.bak` was deleted).
 
 ## Running the paper-resolver
@@ -59,7 +61,7 @@ See `tools/paper-resolver/usage.md` for validated invocations. The essentials:
   (`doi`/`batch`/`search`); subcommand args like `--limit` go after. Putting `--json` after the DOI errors.
 - Always set `RESOLVER_EMAIL=richbodo@gmail.com` (required by Unpaywall; polite pool for OpenAlex).
 - Needs network access (sandbox off for the call) and PyMuPDF for `--extract`.
-- State lives in `research/paper-corpus/resolver.db` (gitignored, idempotent cache + corpus index).
+- State lives in `research/research_library/paper-corpus/resolver.db` (gitignored, idempotent cache + corpus index).
 
 ## Cross-repo work
 
