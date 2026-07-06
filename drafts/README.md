@@ -1,11 +1,12 @@
 # This folder moved (July 2026)
 
-The research drafts that used to live here were reorganized:
+The research drafts that used to live here were reorganized (now by topic):
 
-- Foundational documents (threat catalog, egocentric→community note, social cohesion) → [`research/foundational/`](../research/foundational/)
-- Bibliography and paper summaries → [`research/library/`](../research/library/)
-- Knowledge-base build plan → [`research/planning/`](../research/planning/)
+- Threat catalog + its bibliography → [`research/threat_modelling/`](../research/threat_modelling/)
+- Measurement research (egocentric→community note, explainer, social cohesion) → [`research/measurement/`](../research/measurement/)
+- Protocol design notes → [`research/protocols/`](../research/protocols/)
+- Paper summaries, corpus, knowledge-base plan → [`research/research_library/`](../research/research_library/)
 - Paper-resolver tool and usage notes → [`tools/paper-resolver/`](../tools/paper-resolver/)
-- Pre-Berlin presentation notes → [`presentations/dwebcamp-berlin-2026/`](../presentations/dwebcamp-berlin-2026/)
+- Presentation prep → [`presentations/`](../presentations/)
 
 This stub exists so old deep links don't dead-end. See [`RELATED_REPOS.md`](../RELATED_REPOS.md) for the full project map.
