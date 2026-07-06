@@ -17,9 +17,9 @@ mdc: true
 
 <img :src="'/snh-logo.svg'" alt="Social Network Health" class="w-28 mx-auto mb-4" />
 
-# Social Network Health Project
+# Rooting the Social Graph with Personal Network Applications
 
-### Rooting the Social Graph with Personal Network Applications
+### The Social Network Health Project
 
 <div class="flex items-center justify-center gap-3 mt-10">
   <img :src="'/rich-headshot-2016.jpeg'" alt="Rich Bodo" class="w-14 h-14 rounded-full object-cover border-2 border-[#f7c948]" />

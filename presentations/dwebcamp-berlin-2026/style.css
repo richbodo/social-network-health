@@ -18,22 +18,26 @@
   --summer-green: #4e9e6d;
 }
 
-/* every slide: warm morning-sky gradient instead of charcoal/white */
+/* Layouts are TRANSPARENT — global-bottom.vue paints the background wash,
+   which brightens slide by slide (darker dawn on slide 1 → full summer sun
+   with grass and sunflowers on the last slide). !important still needed to
+   beat Slidev's base layout styles and seriph cover's inline background. */
 .slidev-layout {
-  background: linear-gradient(155deg, var(--summer-cream) 0%, var(--summer-sand) 48%, var(--summer-sky) 100%) !important;
+  background: transparent !important;
   color: var(--summer-ink) !important;
 }
-
-/* cover + section/center slides get a sunnier version with a soft sun glow.
-   (also beats seriph cover's inline background style) */
 .slidev-layout.cover,
 .slidev-layout.intro,
 .slidev-layout.center,
 .slidev-layout.section {
-  background:
-    radial-gradient(ellipse 60% 45% at 78% 8%, rgba(247, 201, 72, 0.45), transparent 70%),
-    linear-gradient(160deg, var(--summer-sand) 0%, var(--summer-cream) 45%, var(--summer-sky) 100%) !important;
+  background: transparent !important;
   color: var(--summer-ink) !important;
+}
+
+/* clear the upper-left logo (global-top.vue) on body slides — the cover,
+   center, and section layouts center their content, so they're exempt */
+.slidev-layout:not(.cover):not(.intro):not(.center):not(.section) {
+  padding-top: 4.6rem !important;
 }
 
 .slidev-layout h1 {
