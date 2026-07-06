@@ -15,14 +15,14 @@ transition: slide-left
 mdc: true
 ---
 
-<img src="/snh-logo.svg" alt="Social Network Health" class="w-28 mx-auto mb-4" />
+<img :src="'/snh-logo.svg'" alt="Social Network Health" class="w-28 mx-auto mb-4" />
 
 # Social Network Health Project
 
 ### Rooting the Social Graph with Personal Network Applications
 
 <div class="flex items-center justify-center gap-3 mt-10">
-  <img src="/rich-headshot-2016.jpeg" alt="Rich Bodo" class="w-14 h-14 rounded-full object-cover border-2 border-[#f7c948]" />
+  <img :src="'/rich-headshot-2016.jpeg'" alt="Rich Bodo" class="w-14 h-14 rounded-full object-cover border-2 border-[#f7c948]" />
   <div class="text-left leading-tight">
     <div>Rich Bodo</div>
     <div class="text-sm opacity-70">DWeb Camp Berlin 2026 · Hackers Lab</div>
@@ -145,7 +145,7 @@ layout: center
 
 # The layers
 
-<img src="/pna-three-layers.svg" alt="The PNA Spec in three layers: Goals (the why) → architectural commitments (the what, checkable) → realizations & constraints (the how, per stack)" class="rounded-lg shadow-lg border border-gray-300 bg-white max-h-105 mx-auto" />
+<img :src="'/pna-three-layers.svg'" alt="The PNA Spec in three layers: Goals (the why) → architectural commitments (the what, checkable) → realizations & constraints (the how, per stack)" class="rounded-lg shadow-lg border border-gray-300 bg-white max-h-105 mx-auto" />
 
 <div class="text-xs opacity-60 mt-1 text-center">The dividing test: does it survive a total technology swap? (PNA Spec § How the pieces fit together)</div>
 
@@ -172,7 +172,7 @@ file-lock on native. One commitment, two realizations.
 </div>
 <div>
 
-<img src="/screenshots/fellows-consent-gate.png" alt="fellows_local_db consent gate before connecting a cloud AI" class="rounded-lg shadow-lg border border-gray-300 max-h-100" />
+<img :src="'/screenshots/fellows-consent-gate.png'" alt="fellows_local_db consent gate before connecting a cloud AI" class="rounded-lg shadow-lg border border-gray-300 max-h-100" />
 <div class="text-xs opacity-60 mt-1 text-center">fellows_local_db — "Before you connect a cloud AI — please read"</div>
 
 </div>
@@ -190,13 +190,13 @@ build a correct mental model, not just so a linter passes.
 <div class="grid grid-cols-2 gap-4 items-start mt-2">
 <div>
 
-<img src="/screenshots/fellows-contact-rich.jpg" alt="EHF Fellows Directory — Rich's profile with the fellows list" class="rounded-lg shadow-lg border border-gray-300" />
+<img :src="'/screenshots/fellows-contact-rich.jpg'" alt="EHF Fellows Directory — Rich's profile with the fellows list" class="rounded-lg shadow-lg border border-gray-300" />
 <div class="text-xs opacity-60 mt-1 text-center"><strong>fellows_local_db</strong> — ✅ complete, in use · 515 fellows, local-only</div>
 
 </div>
 <div>
 
-<img src="/screenshots/prm-contact-turing.jpg" alt="PRM contacts view — Alan Turing (fixture data)" class="rounded-lg shadow-lg border border-gray-300" />
+<img :src="'/screenshots/prm-contact-turing.jpg'" alt="PRM contacts view — Alan Turing (fixture data)" class="rounded-lg shadow-lg border border-gray-300" />
 <div class="text-xs opacity-60 mt-1 text-center"><strong>PRM</strong> — 🔨 in progress · fixture data, nothing leaves the device</div>
 
 </div>
@@ -221,16 +221,16 @@ because the toolkit holds the safety line.
 - Cloud AI = a **named, visible, reversible exception** (EX-CLOUD-LLM) — never a silent default
 - Solving AI egress solves the general case: OS automation, integrations, whatever's next
 
-<img src="/screenshots/fellows-going-rogue-banner.png" alt="fellows_local_db 'Going rogue' banner after enabling the cloud-AI exception" class="rounded-lg shadow border border-gray-300 mt-3" />
+<img :src="'/screenshots/fellows-going-rogue-banner.png'" alt="fellows_local_db 'Going rogue' banner after enabling the cloud-AI exception" class="rounded-lg shadow border border-gray-300 mt-3" />
 <div class="text-xs opacity-60 mt-1 text-center">fellows_local_db — the app tells you it has left local-only mode</div>
 
 </div>
 <div>
 
-<img src="/screenshots/prm-access-ai-on.jpg" alt="PRM External Access view with cloud AI access active" class="rounded-lg shadow-lg border border-gray-300" />
+<img :src="'/screenshots/prm-access-ai-on.jpg'" alt="PRM External Access view with cloud AI access active" class="rounded-lg shadow-lg border border-gray-300" />
 <div class="text-xs opacity-60 mt-1 text-center">PRM External Access — cloud AI on: banner, data floor, revoke, return to PNA mode</div>
 
-<img src="/screenshots/fellows-settings-claude-integration.png" alt="fellows_local_db Settings — Claude Desktop integration" class="rounded-lg shadow border border-gray-300 mt-3" />
+<img :src="'/screenshots/fellows-settings-claude-integration.png'" alt="fellows_local_db Settings — Claude Desktop integration" class="rounded-lg shadow border border-gray-300 mt-3" />
 <div class="text-xs opacity-60 mt-1 text-center">fellows_local_db Settings — the same control, one button</div>
 
 </div>
@@ -272,7 +272,7 @@ audience, naming the unhandled threat is more credible than claiming coverage.
 </div>
 <div>
 
-<img src="/screenshots/fellows-conformance-report.jpg" alt="fellows_local_db PNA conformance report" class="rounded-lg shadow-lg border border-gray-300 max-h-90" />
+<img :src="'/screenshots/fellows-conformance-report.jpg'" alt="fellows_local_db PNA conformance report" class="rounded-lg shadow-lg border border-gray-300 max-h-90" />
 <div class="text-xs opacity-60 mt-1 text-center">fellows_local_db conformance report — 37/41 rows, evidence-linked</div>
 
 </div>
