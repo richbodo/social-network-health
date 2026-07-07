@@ -12,6 +12,11 @@ knowledge base.
 
 ## External resources
 
+- **snhdb — the research-document GitHub store:** https://github.com/richbodo/snhdb — public
+  paper library (PDFs, markdown conversions, YAML metadata cards, `card-schema.yaml`). Will
+  sync with the Google Drive folder below and power the AI search engine planned for
+  toolkit.socialnetwork.health. The card format descends from the schema drafted in
+  `planning/knowledge-base-plan.md`.
 - **Full papers & metadata (Google Drive, public):**
   https://drive.google.com/drive/u/0/folders/1CQIZnHCojqnvGuiOmn9UR7Jbf9nGlICD — the source
   folder for the research corpus.
