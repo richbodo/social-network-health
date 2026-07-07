@@ -29,6 +29,12 @@ was imported from the standalone repo in July 2026:
 |---|---|---|---|
 | pnt-workshop | `presentations/pnt-workshop/` (imported; standalone checkout at `../pnt-workshop` is now redundant) | github.com/richbodo/pnt-workshop (candidate for archiving) | Slidev slide deck + talk notes for Personal Network Toolkit workshops. Starting point for new decks (e.g. DWeb Camp Berlin 2026). |
 
+## Research infrastructure (active)
+
+| Repo | Local path | Remote | Role |
+|---|---|---|---|
+| snhdb | `../snhdb` | github.com/richbodo/snhdb | Public research-paper library: PDFs, markdown conversions, YAML metadata cards, and `card-schema.yaml` (the pilot refinement of the card format drafted in `research/research_library/planning/knowledge-base-plan.md`). Will sync with the Google Drive research corpus and power the AI search engine planned for toolkit.socialnetwork.health. New 2026-07. |
+
 ## Data tooling & wiki (dormant / historical)
 
 | Repo | Local path | Remote | Role | Status |
@@ -44,7 +50,8 @@ was imported from the standalone repo in July 2026:
 
 - **Toolkit wiki (live):** https://toolkit.socialnetwork.health — MediaWiki of best practices and research findings; the primary body of published SNH work.
 - **Paper corpus (Google Drive, public):** https://drive.google.com/drive/u/0/folders/1CQIZnHCojqnvGuiOmn9UR7Jbf9nGlICD — full papers & metadata behind `research/threat_modelling/references/references.md`.
-- **SNH GPT — Researcher:** custom GPT grounded in the corpus (linked from the homepage).
+- **SNH GPT — Researcher (retired):** custom GPT grounded in the corpus (kept linked from the homepage's Research library card until fully removed).
+- **Search with Claude Desktop (instructions):** https://docs.google.com/document/d/1QlV5VQE1dEqhYEget6jJUSHRhCDfgrynyYdgXm6BoWU — the most-used how-to for querying the library with AI tools.
 - **Video archive:** https://www.youtube.com/@SocialNetworkHealth
 - **Live site:** https://socialnetwork.health — served from this repo's `public/`, deployed via `ops/`.
 
