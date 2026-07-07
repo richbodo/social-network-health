@@ -33,7 +33,7 @@ was imported from the standalone repo in July 2026:
 
 | Repo | Local path | Remote | Role |
 |---|---|---|---|
-| snhdb | `../snhdb` | github.com/richbodo/snhdb | Public research-paper library: PDFs, markdown conversions, YAML metadata cards, and `card-schema.yaml` (the pilot refinement of the card format drafted in `research/research_library/planning/knowledge-base-plan.md`). Will sync with the Google Drive research corpus and power the AI search engine planned for toolkit.socialnetwork.health. New 2026-07. |
+| snhdb | `../snhdb` | github.com/richbodo/snhdb | Public research-paper library: PDFs, markdown conversions, YAML metadata cards, and `card-schema.yaml` (the pilot refinement of the card format drafted in `research/research_library/planning/knowledge-base-plan.md`). Ships a user-wide Claude Code skill (`/snhdb <question>` — install per its README) for cited corpus search from any session. Will sync with the Google Drive research corpus and power the AI search engine planned for toolkit.socialnetwork.health. New 2026-07. |
 
 ## Data tooling & wiki (dormant / historical)
 
