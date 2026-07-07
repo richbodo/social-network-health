@@ -15,6 +15,9 @@ knowledge base.
 - **Full papers & metadata (Google Drive, public):**
   https://drive.google.com/drive/u/0/folders/1CQIZnHCojqnvGuiOmn9UR7Jbf9nGlICD — the source
   folder for the research corpus.
+- **Search with Claude Desktop (instructions):**
+  https://docs.google.com/document/d/1QlV5VQE1dEqhYEget6jJUSHRhCDfgrynyYdgXm6BoWU — the most
+  commonly used how-to for querying the library with AI tools.
 - **SNH GPT — Researcher (the original custom GPT):**
   https://chatgpt.com/g/g-67c7b452ac188191aa2fab75ce290cc4-social-network-health-researcher —
   grounded in hundreds of papers and articles on social network health, focused on remote and
