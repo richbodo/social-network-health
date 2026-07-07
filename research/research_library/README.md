@@ -13,7 +13,10 @@ knowledge base.
 ## External resources
 
 - **snhdb — the research-document GitHub store:** https://github.com/richbodo/snhdb — public
-  paper library (PDFs, markdown conversions, YAML metadata cards, `card-schema.yaml`). Will
+  paper library (PDFs, markdown conversions, YAML metadata cards, `card-schema.yaml`).
+  Searchable locally with Claude Code (in-repo, or from anywhere via its user-wide `/snhdb`
+  skill — see its README for install and `docs/search-with-claude-code.md` for the test
+  protocol). Will
   sync with the Google Drive folder below and power the AI search engine planned for
   toolkit.socialnetwork.health. The card format descends from the schema drafted in
   `planning/knowledge-base-plan.md`.
