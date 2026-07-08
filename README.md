@@ -10,7 +10,7 @@ It aggregates several efforts:
 This repo is the **organizing hub**: the https://socialnetwork.health website, research documents,
 and pointers to the software efforts we are developing in other places.
 
-## AI skills across the organizations repos
+## AI skills and tools across the organizations repos
 
 Much of this program is designed to be *operated through AI agents*. Three Claude Code skills,
 one per major piece of the program, are the entry points:
