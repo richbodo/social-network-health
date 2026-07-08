@@ -5,11 +5,12 @@ research program. The software, specs, and workshop materials live in sibling re
 
 ## The sibling-checkout convention
 
-**All project repos are checked out side by side in the same parent directory** (`~/src/` on this
-machine, the equivalent on other workstations). So from this repo's root, every related repo is at
-`../<name>`. When doing cross-repo work, resolve paths **relative to the repo root** (`../prm`,
-`../personal_network_toolkit`, …), never as absolute paths — the absolute prefix differs per host.
-Not every sibling directory is related to SNH; the tables below list the ones that are.
+**Check out all project repos at the same filesystem hierarchy level** — side by side in one
+parent directory of your choice. From any repo's root, every related repo is then at `../<name>`,
+so cross-repo work resolves paths **relative to the repo root** (`../prm`,
+`../personal_network_toolkit`, …), never as absolute paths — the parent directory differs per
+host. Not every directory at that level need be related to SNH; the tables below list the repos
+that are.
 
 ## Core software (active)
 
