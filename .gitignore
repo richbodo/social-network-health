@@ -22,3 +22,6 @@ research/research_library/paper-corpus/
 # ops: real inventory (droplet IP) and downloaded Ansible collections
 ops/ansible/inventory/hosts.ini
 ops/ansible/collections/ansible_collections/
+
+# memoriams: private named case records (public doc is memoriams.md)
+research/research_library/memoriams_data/
