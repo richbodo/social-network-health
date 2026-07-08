@@ -10,6 +10,21 @@ It aggregates several efforts:
 This repo is the **organizing hub**: the https://socialnetwork.health website, research documents,
 and pointers to the software efforts we are developing in other places.
 
+## AI skills on offer
+
+Much of this program is designed to be *operated through AI agents*. Three Claude Code skills,
+one per major piece of the program, are the entry points:
+
+| Skill | Lives in | What it does |
+|---|---|---|
+| **pna-toolkit** | [personal_network_toolkit](https://github.com/richbodo/personal_network_toolkit) (`pna-toolkit/SKILL.md`) | The PNA Toolkit skill, four flows: **build** a conformant Personal Network Application from the spec, **evaluate** an existing app for conformance ("is this app safe to install?"), **contribute** back to the toolkit, and **harden** the environment a PNA runs in. |
+| **snhdb** | [snhdb](https://github.com/richbodo/snhdb) (`skill/snhdb/SKILL.md`) | Cited search over the SNH research-paper corpus: ask what the literature says, or evidence-check a claim. Installable user-wide (`/snhdb <question>` from any session) — see its README. |
+| **paper-resolver** | this repo (`tools/paper-resolver/SKILL.md`) | Resolve a DOI, title, or topic search to metadata plus **legal** open-access full text; grows the research corpus that snhdb serves. See `tools/paper-resolver/usage.md`. |
+
+(A fourth SKILL.md — `pna-build-eval-contrib`, embedded in
+[fellows_local_db](https://github.com/richbodo/fellows_local_db) — is an earlier three-flow
+copy of the pna-toolkit skill, superseded by Toolkit v0.2.)
+
 ## Layout
 
 - `research/measurement/` — measuring community network health from egocentric data: the
