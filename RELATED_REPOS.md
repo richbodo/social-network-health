@@ -35,16 +35,13 @@ was imported from the standalone repo in July 2026:
 |---|---|---|---|
 | snhdb | `../snhdb` | github.com/richbodo/snhdb | Public research-paper library: PDFs, markdown conversions, YAML metadata cards, and `card-schema.yaml` (the pilot refinement of the card format drafted in `research/research_library/planning/knowledge-base-plan.md`). Ships a user-wide Claude Code skill (`/snhdb <question>` — install per its README) for cited corpus search from any session. Will sync with the Google Drive research corpus and power the AI search engine planned for toolkit.socialnetwork.health. New 2026-07. |
 
-## Data tooling & wiki (dormant / historical)
+## Websites & educational materials
 
-| Repo | Local path | Remote | Role | Status |
-|---|---|---|---|---|
-| snh_bridge_test | `../snh_bridge_test` | github.com/richbodo/snh_bridge_test | CLI test utility for the DataBridge API SNH project (PDF upload + query). | stale (2025) |
-| snhtoolkitmw | `../snhtoolkitmw` | github.com/richbodo/snhtoolkitmw | MediaWiki extension bundle/config for the SNH toolkit wiki. | dormant (2024) |
-| socialnetwork_toolkit | `../socialnetwork_toolkit` | github.com/richbodo/socialnetwork_toolkit | MediaWiki install/config + content for the toolkit wiki. **Its README warns secrets are checked in — treat as sensitive, never mirror publicly.** | dormant (2024) |
-| slack2kumu_directory | `../slack2kumu_directory` | github.com/richbodo/slack2kumu_directory | Slack community → Kumu directory diagram script. | dormant (2024) |
-| kumu_directory_from_slack | `../kumu_directory_from_slack` | (not a git repo) | Un-versioned precursor of slack2kumu_directory. | dormant |
-| collaborationscience | `../collaborationscience` | github.com/richbodo/collaborationscience | Plain-text knowledge base on collaboration — predecessor thinking, tangential to SNH proper. | historical (2019) |
+| Repo | Local path | Remote | Role |
+|---|---|---|---|
+| social-network-health | (this repo) | github.com/richbodo/social-network-health | The main website, https://socialnetwork.health (`public/`, deployed via `ops/`), plus the research documents and presentations behind it. |
+| snhtoolkitmw | `../snhtoolkitmw` | github.com/richbodo/snhtoolkitmw | MediaWiki extension bundle/config for the SNH toolkit wiki (https://toolkit.socialnetwork.health). Dormant since 2024; reactivating July 2026. |
+| socialnetwork_toolkit | `../socialnetwork_toolkit` | github.com/richbodo/socialnetwork_toolkit | MediaWiki install/config + content for the toolkit wiki. **Its README warns secrets are checked in — treat as sensitive, never mirror publicly.** Dormant since 2024; reactivating July 2026. |
 
 ## Non-repo resources
 
@@ -54,5 +51,3 @@ was imported from the standalone repo in July 2026:
 - **Search with Claude Desktop (instructions):** https://docs.google.com/document/d/1QlV5VQE1dEqhYEget6jJUSHRhCDfgrynyYdgXm6BoWU — the most-used how-to for querying the library with AI tools.
 - **Video archive:** https://www.youtube.com/@SocialNetworkHealth
 - **Live site:** https://socialnetwork.health — served from this repo's `public/`, deployed via `ops/`.
-
-*Compiled 2026-07-04 from a survey of `~/src/` on this host. When a related repo is added or retired, update this file — it is the single source of truth that `CLAUDE.md`, `AGENTS.md`, and the `/prime` command all point to.*
