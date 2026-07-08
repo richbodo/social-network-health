@@ -35,6 +35,10 @@ import urllib.request
 from datetime import datetime, timezone
 
 USER_AGENT = "paper-resolver/1.0 (mailto:{email}; local-first OA resolver)"
+# Some publishers (ACM, Wiley, SAGE, MDPI, Elsevier) reject non-browser User-Agents when serving
+# their open-access PDFs. Metadata calls keep the polite UA; the PDF download uses a browser UA.
+BROWSER_UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+              "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36")
 TIMEOUT = 30
 
 
@@ -332,9 +336,17 @@ def download_pdf(url, dest_dir, doi):
     fname = re.sub(r"[^\w.-]", "_", doi) + ".pdf"
     dest = os.path.join(dest_dir, fname)
     try:
-        req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT.format(email="anonymous")})
-        with urllib.request.urlopen(req, timeout=TIMEOUT) as r, open(dest, "wb") as f:
-            f.write(r.read())
+        req = urllib.request.Request(url, headers={
+            "User-Agent": BROWSER_UA,
+            "Accept": "application/pdf,*/*",
+        })
+        with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
+            data = r.read()
+        # Guard: a blocked/landing page often returns HTML with HTTP 200 — only keep real PDFs.
+        if b"%PDF" not in data[:1024]:
+            return None
+        with open(dest, "wb") as f:
+            f.write(data)
         return dest
     except Exception:
         return None
