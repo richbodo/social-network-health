@@ -10,7 +10,7 @@ It aggregates several efforts:
 This repo is the **organizing hub**: the https://socialnetwork.health website, research documents,
 and pointers to the software efforts we are developing in other places.
 
-## AI skills and tools across the organizations repos
+## AI skills and tools across the organization's repos
 
 Much of this program is designed to be *operated through AI agents*. Three Claude Code skills,
 one per major piece of the program, are the entry points:
@@ -21,6 +21,20 @@ one per major piece of the program, are the entry points:
 | **snhdb** | [snhdb](https://github.com/social-network-health/snhdb) (`skill/snhdb/SKILL.md`) | Cited search over the SNH research-paper corpus: ask what the literature says, or evidence-check a claim. Installable user-wide (`/snhdb <question>` from any session) — see its README. |
 | **paper-resolver** | this repo (`tools/paper-resolver/SKILL.md`) | Resolve a DOI, title, or topic search to metadata plus **legal** open-access full text; grows the research corpus that snhdb serves. See `tools/paper-resolver/usage.md`. |
 
+### CLI tools
+
+The CLI tooling on offer lives in the
+[personal_network_toolkit](https://github.com/social-network-health/personal_network_toolkit)
+`tools/` directory (run via its `justfile`):
+
+| Tool | What it does |
+|---|---|
+| `just validate <candidate>` | Runs the deterministic lint suite against a candidate PNA and folds the results into one typed `evaluate-report.json` — the deterministic spine that the skill's LLM review then enriches. |
+| The lint suite | Individually runnable deterministic checks: egress (does anything send data off-device?), export-readable, loopback-surface, attestation-evidence, report-fixtures, and spec-ID integrity. CI-enforced on the toolkit itself. |
+| Visual Validator (`tools/report-viewer/`) | A zero-dependency browser viewer for evaluate reports, with a developer view and a plain-language end-user view ("is this app safe?"). |
+| `swh-save` / `rearchive` | Archive reference designs to Software Heritage so accepted designs survive upstream repo deletion. |
+
+(The paper-resolver above is also a plain CLI — `tools/paper-resolver/resolve.py` in this repo.)
 
 ## Layout
 
