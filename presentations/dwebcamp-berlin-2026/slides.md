@@ -120,7 +120,7 @@ An agent-ready toolkit for building **Personal Network Applications** — apps r
 4. **Survive entropy & accidents** — durability against loss, drift, and time
 
 <!--
-github.com/richbodo/personal_network_toolkit — spec, contracts, lints, MCP servers,
+github.com/social-network-health/personal_network_toolkit — spec, contracts, lints, MCP servers,
 conformance suite. "Checked not awarded" is the phrase to emphasize.
 -->
 

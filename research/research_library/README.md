@@ -30,13 +30,13 @@ python3 tools/paper-resolver/resolve.py \
 ```
 
 Division of labor: the **paper-resolver acquires** papers into the local, gitignored
-`paper-corpus/`; **[snhdb](https://github.com/richbodo/snhdb) curates and serves** the public
+`paper-corpus/`; **[snhdb](https://github.com/social-network-health/snhdb) curates and serves** the public
 library (and its `/snhdb` skill answers questions over it). New finds worth keeping should
 graduate from `paper-corpus/` into snhdb.
 
 ## External resources
 
-- **snhdb — the research-document GitHub store:** https://github.com/richbodo/snhdb — public
+- **snhdb — the research-document GitHub store:** https://github.com/social-network-health/snhdb — public
   paper library (PDFs, markdown conversions, YAML metadata cards, `card-schema.yaml`).
   Searchable locally with Claude Code (in-repo, or from anywhere via its user-wide `/snhdb`
   skill — see its README for install and `docs/search-with-claude-code.md` for the test
