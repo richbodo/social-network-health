@@ -717,3 +717,79 @@ Break out. We can workshop:
 Split by interest, reconvene for report-backs, I capture everything into the
 repo. Contact info stays up while we work.
 -->
+
+---
+
+# 21 · Do It Yourself
+
+<div class="grid grid-cols-3 gap-4 mt-4 text-sm">
+<div class="border border-gray-300 rounded-lg p-4 bg-white shadow">
+
+### 🔍 Validate an app
+
+<div class="text-xs mt-2">
+
+`github.com/social-network-health/`<br>**`personal_network_toolkit`**
+
+1. Clone — the **pna-toolkit skill** ships with it
+2. In Claude Code: *"evaluate &lt;app&gt; against the PNA spec"* → the skill runs the **evaluate flow** → a typed `evaluate-report.json`
+3. `just view-reports` — every validation, rendered; the casebook lives in `evaluations/` (e.g. Signal Desktop)
+
+</div>
+</div>
+<div class="border border-gray-300 rounded-lg p-4 bg-white shadow">
+
+### 📚 Ask the research
+
+<div class="text-xs mt-2">
+
+`github.com/social-network-health/`<br>**`snhdb`**
+
+1. Clone (~1 GB, all local) — install the **/snhdb skill** (one symlink)
+2. In any Claude Code session:
+
+<em>/snhdb What does the research say about loneliness interventions for remote workers? Cite papers.</em>
+
+The cards are the index; answers cite the papers.
+
+</div>
+</div>
+<div class="border border-gray-300 rounded-lg p-4 bg-white shadow">
+
+### 🛠️ Critique the spec & plan
+
+<div class="text-xs mt-2">
+
+**The PNA Spec** — goals, commitments, exceptions:<br>
+`personal_network_toolkit/`<br>**`spec/PNA_Spec.md`**
+
+**The plan** — the three steps, and the research behind each:<br>
+`social-network-health/`<br>**`research/plan.md`**
+
+Issues and PRs welcome — it's all *checked, not awarded*.
+
+</div>
+</div>
+</div>
+
+<div class="text-xs opacity-70 mt-4 text-center">
+<a href="https://github.com/social-network-health/personal_network_toolkit" target="_blank">github.com/social-network-health/personal_network_toolkit</a> · <a href="https://github.com/social-network-health/snhdb" target="_blank">github.com/social-network-health/snhdb</a> · <a href="https://github.com/social-network-health/social-network-health/blob/main/research/plan.md" target="_blank">research/plan.md</a>
+</div>
+
+<!--
+The take-home slide — leave it up during the workshop alongside slide 20's
+options. All three paths are things a camper can start tonight.
+
+Validate: the pna-toolkit skill's evaluate flow classifies the candidate first
+(Mode 1 membership / Mode 2 goal-impact for adjacent apps like Signal / Mode 3
+out of scope), walks the ACs with cited code locations, and emits the typed
+report. Viewing: `just view-reports` renders reports in the Visual Validator;
+evaluations/ is the casebook of validations that proved something.
+
+snhdb: the corpus is plain files — PDFs + markdown conversions + YAML metadata
+cards; plain rg works too, no cloud, no vector store.
+
+Full links:
+- Spec: github.com/social-network-health/personal_network_toolkit/blob/main/spec/PNA_Spec.md
+- Plan: github.com/social-network-health/social-network-health/blob/main/research/plan.md
+-->
