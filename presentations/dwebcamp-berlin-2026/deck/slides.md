@@ -553,7 +553,7 @@ table in the note.
 
 # 17 · Check-in Protocol — Proactive Peer Check-ins
 
-<div class="grid grid-cols-[1fr_1.1fr] gap-8 items-start text-sm">
+<div class="grid grid-cols-[1.2fr_1fr] gap-6 items-start text-xs">
 <div>
 
 *A help-seeking button cannot reach someone who has stopped reaching.*
@@ -561,37 +561,33 @@ table in the note.
 **Actors**
 
 - **Member** — anyone in the community
-- **Checker** — *named by the member* (the phone tree); nobody is assigned one
-- **Steward** — accountable human; receives escalations, owns the crisis-resource list
-- **Coordinator** — optional software; holds pairings + timestamps, **never content**
+- **Checker** — *named by the member* (the phone tree); never assigned
+- **Steward** — accountable human; escalations + crisis resources
+- **Coordinator** — optional software; pairings + timestamps, **never content**
 
-**Stages** — least risky first, each gates the next
-
-1. Human-human **cadence** check-ins (no software)
-2. **Triggered** — absence / acute events, consented signals
-3. **Escalation** paths, steward duties, duty-of-care review
+**Stages** — <strong>1</strong> human-human cadence (no software) → <strong>2</strong> triggered (consented absence / event signals) → <strong>3</strong> escalation paths. *Least risky first; each gates the next.*
 
 </div>
 <div>
 
-```mermaid {scale: 0.7}
+```mermaid {scale: 0.6}
 sequenceDiagram
     participant M as Member
     participant C as Checker
     participant K as Coordinator
-    Note over K: consented absence watch —<br/>quiet beyond member's own baseline
-    K->>C: "it's been a while — reach out"<br/>(elapsed time only, no inference)
+    Note over K: consented absence watch
+    K->>C: "it's been a while — reach out"
     C->>M: "no agenda — how are you doing?"
     M-->>C: a real conversation (never logged)
     C->>K: checked ✓ (timestamp only)
 ```
 
-<div class="text-xs opacity-60 text-center">Stage 2, success case — the nudge carries no inference; content never touches the system</div>
+<div class="text-xs opacity-60 text-center">Stage 2, success case — the nudge carries elapsed time only, no inference; content never touches the system</div>
 
 </div>
 </div>
 
-<div class="text-xs mt-2 opacity-80">Not a cron job — every choice is research-consulted: top-down checker assignment overlaps only <strong>13–23%</strong> with network-optimal picks; members naming their own is the program primitive (Pickering, Wyman et al. 2022; Wyman 2010/2019).</div>
+<div class="text-xs mt-1 opacity-80">Not a cron job — every choice is research-consulted: top-down checker assignment overlaps only <strong>13–23%</strong> with network-optimal picks (Pickering, Wyman et al. 2022; Wyman 2010/2019).</div>
 
 <!--
 Source: research/protocols/checkin_protocol.md v0.1.1 (idea-stage; grill before v0.2).
