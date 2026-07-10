@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 460" font-family="sans-serif">
+  <!-- ego → alter ties (solid, one color) -->
+  <g stroke="#2179b8" stroke-width="2.5" opacity="0.85">
+    <line x1="250" y1="230" x2="425" y2="230"/>
+    <line x1="250" y1="230" x2="387" y2="151"/>
+    <line x1="250" y1="230" x2="342" y2="70"/>
+    <line x1="250" y1="230" x2="250" y2="70"/>
+    <line x1="250" y1="230" x2="161" y2="76"/>
+    <line x1="250" y1="230" x2="107" y2="148"/>
+    <line x1="250" y1="230" x2="65"  y2="230"/>
+    <line x1="250" y1="230" x2="110" y2="311"/>
+    <line x1="250" y1="230" x2="160" y2="386"/>
+    <line x1="250" y1="230" x2="250" y2="388"/>
+    <line x1="250" y1="230" x2="341" y2="388"/>
+    <line x1="250" y1="230" x2="396" y2="314"/>
+  </g>
+  <!-- alter ↔ alter ties the ego knows about (dotted) -->
+  <g stroke="#8a8f98" stroke-width="2.5" stroke-dasharray="4 6" stroke-linecap="round" fill="none">
+    <line x1="387" y1="151" x2="342" y2="70"/>
+    <line x1="161" y1="76"  x2="107" y2="148"/>
+    <line x1="110" y1="311" x2="160" y2="386"/>
+    <line x1="341" y1="388" x2="396" y2="314"/>
+    <line x1="250" y1="70"  x2="161" y2="76"/>
+  </g>
+  <!-- alters -->
+  <g fill="#cbd5e1" stroke="#64748b" stroke-width="2">
+    <circle cx="425" cy="230" r="12"/>
+    <circle cx="387" cy="151" r="12"/>
+    <circle cx="342" cy="70"  r="12"/>
+    <circle cx="250" cy="70"  r="12"/>
+    <circle cx="161" cy="76"  r="12"/>
+    <circle cx="107" cy="148" r="12"/>
+    <circle cx="65"  cy="230" r="12"/>
+    <circle cx="110" cy="311" r="12"/>
+    <circle cx="160" cy="386" r="12"/>
+    <circle cx="250" cy="388" r="12"/>
+    <circle cx="341" cy="388" r="12"/>
+    <circle cx="396" cy="314" r="12"/>
+  </g>
+  <!-- ego -->
+  <circle cx="250" cy="230" r="26" fill="#2e8540" stroke="#1d5c2c" stroke-width="3"/>
+</svg>
