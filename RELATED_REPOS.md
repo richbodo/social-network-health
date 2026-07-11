@@ -40,7 +40,7 @@ history under `presentations/pnt-workshop/`:
 
 | Repo | Local path | Remote | Role |
 |---|---|---|---|
-| pnt-workshop | `../pnt-workshop` (standalone checkout) | github.com/richbodo/pnt-workshop (candidate for archiving) | Slidev slide deck + talk notes for Personal Network Toolkit workshops. Superseded by the DWeb Camp Berlin 2026 deck. |
+| pnt-workshop | *(not checked out locally — clone to `../pnt-workshop` if needed)* | github.com/richbodo/pnt-workshop (candidate for archiving) | Slidev slide deck + talk notes for Personal Network Toolkit workshops. Superseded by the DWeb Camp Berlin 2026 deck. |
 
 ## Research infrastructure (active)
 
