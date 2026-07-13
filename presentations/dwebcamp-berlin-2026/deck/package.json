@@ -1,5 +1,5 @@
 {
-  "name": "pnt-workshop",
+  "name": "dwebcamp-berlin-2026",
   "type": "module",
   "private": true,
   "scripts": {
@@ -12,5 +12,8 @@
     "@slidev/theme-default": "latest",
     "@slidev/theme-seriph": "latest",
     "vue": "^3.5.33"
+  },
+  "devDependencies": {
+    "playwright-chromium": "^1.61.1"
   }
 }

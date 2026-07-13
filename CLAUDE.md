@@ -26,8 +26,11 @@ research/                  organized BY TOPIC:
                            planning/knowledge-base-plan.md (read before corpus work),
                            paper-corpus/ (GITIGNORED generated artifacts: SQLite db + PDFs)
 tools/paper-resolver/      resolve.py + SKILL.md + usage.md — DOI/title/topic → metadata + legal OA full text
-presentations/             all talk material: pnt-workshop/ (Slidev deck), dwebcamp-berlin-2026/ (in prep)
-                           run a deck with `just slides <folder>`
+presentations/             one folder per talk; the PDF at a talk's top level IS the presentation,
+                           Slidev source + notes live in its deck/ subdir. Currently:
+                           dwebcamp-berlin-2026/ (delivered 2026-07). Run a deck with
+                           `just slides <folder>` (default: dwebcamp-berlin-2026/deck).
+                           The old pnt-workshop deck lives in richbodo/pnt-workshop + git history.
 drafts/                    STUB ONLY — redirect README for old deep links; don't add content here
 RELATED_REPOS.md           single source of truth for sibling repos and external resources
 ```

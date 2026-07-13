@@ -2,6 +2,10 @@
 
 **Status:** v2.0 (2026-06-10) — reorganized by generality; cites `references.md` by `[n]`.
 
+**Living document.** This catalog is evolutionary: the analysis behind it is re-run
+periodically or as needed, and the catalog is revised with what each pass finds. (The
+`[n]` numbering in `references.md` stays append-only across revisions — see that file.)
+
 **Provenance.** v1 distilled from the `snh-harm-research` multi-agent study (12 research seams
 → 92 raw → 38 consolidated → adversarially verified → synthesized; 52 agents, ~1.5M tokens). v1.1
 added a completeness pass (17 new threats, K1–K6 citations lifted out of "pending," quarantine

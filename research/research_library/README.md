@@ -10,9 +10,33 @@ knowledge base.
 - `paper-corpus/` — gitignored generated artifacts (SQLite index + downloaded PDFs) produced
   by `tools/paper-resolver/`.
 
+## Growing the corpus: the paper-resolver
+
+`tools/paper-resolver/` is the acquisition tool for this library: give it a DOI, a title, a
+DOI list, or a topic search and it walks open scholarly infrastructure (OpenAlex → Unpaywall →
+Semantic Scholar → Europe PMC → Crossref) to return metadata plus a **legal** open-access
+full-text URL, optionally downloading the PDF and extracting its text into `paper-corpus/`.
+It never routes around paywalls — no-OA papers are queued in `unresolved.jsonl` for manual
+pickup. Validated working 2026-06-10; see `tools/paper-resolver/usage.md` for the exact
+invocations and gotchas (flag order matters, `RESOLVER_EMAIL` is required). Quick start:
+
+```bash
+# run from the repo root
+export RESOLVER_EMAIL=<you@example.com>
+python3 tools/paper-resolver/resolve.py \
+  --db research/research_library/paper-corpus/resolver.db \
+  --download --extract --out research/research_library/paper-corpus/pdfs \
+  search "remote work loneliness wellbeing" --limit 15 --from-year 2024
+```
+
+Division of labor: the **paper-resolver acquires** papers into the local, gitignored
+`paper-corpus/`; **[snhdb](https://github.com/social-network-health/snhdb) curates and serves** the public
+library (and its `/snhdb` skill answers questions over it). New finds worth keeping should
+graduate from `paper-corpus/` into snhdb.
+
 ## External resources
 
-- **snhdb — the research-document GitHub store:** https://github.com/richbodo/snhdb — public
+- **snhdb — the research-document GitHub store:** https://github.com/social-network-health/snhdb — public
   paper library (PDFs, markdown conversions, YAML metadata cards, `card-schema.yaml`).
   Searchable locally with Claude Code (in-repo, or from anywhere via its user-wide `/snhdb`
   skill — see its README for install and `docs/search-with-claude-code.md` for the test
