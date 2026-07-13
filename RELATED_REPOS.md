@@ -14,13 +14,6 @@ so cross-repo work resolves paths **relative to the repo root** (`../prm`,
 host. Not every directory at that level need be related to SNH; the tables below list the repos
 that are.
 
-To get everything in one go (needs the [GitHub CLI](https://cli.github.com/)):
-
-```bash
-mkdir snh && cd snh
-gh repo list social-network-health --limit 100 --json name -q '.[].name' | xargs -n1 gh repo clone
-```
-
 ## Core software (active)
 
 | Repo | Local path | Remote | Role |
