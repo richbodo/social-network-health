@@ -32,12 +32,15 @@ gh repo list social-network-health --limit 100 --json name -q '.[].name' | xargs
 
 ## Talks & workshop material
 
-All talk material now lives **in this repo** under `presentations/`. The PNT workshop Slidev deck
-was imported from the standalone repo in July 2026:
+All current talk material lives **in this repo** under `presentations/` (one folder per talk:
+delivered PDF at top level, Slidev source in `deck/`). The PNT workshop deck — the starting
+point for the DWeb Camp Berlin 2026 deck — was briefly imported here (July 2026) and then
+removed once that talk shipped; it remains in the standalone repo and in this repo's git
+history under `presentations/pnt-workshop/`:
 
 | Repo | Local path | Remote | Role |
 |---|---|---|---|
-| pnt-workshop | `presentations/pnt-workshop/` (imported; standalone checkout at `../pnt-workshop` is now redundant) | github.com/richbodo/pnt-workshop (candidate for archiving) | Slidev slide deck + talk notes for Personal Network Toolkit workshops. Starting point for new decks (e.g. DWeb Camp Berlin 2026). |
+| pnt-workshop | *(not checked out locally — clone to `../pnt-workshop` if needed)* | github.com/richbodo/pnt-workshop (candidate for archiving) | Slidev slide deck + talk notes for Personal Network Toolkit workshops. Superseded by the DWeb Camp Berlin 2026 deck. |
 
 ## Research infrastructure (active)
 
